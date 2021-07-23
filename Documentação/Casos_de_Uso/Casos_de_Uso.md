@@ -197,7 +197,9 @@
 **Fluxo Principal:**
 1. O sistema oferece a lista com todos os imóveis ao usuários.
 2. Usuário procura o imóvel desejado.(FA01)
-3. Caso de Uso encerrado.
+3. O usuário seleciona o imóvel.
+4. O sistema exibe as informações do imóvel.(FA02)
+5. Caso de Uso encerrado.
 <hr>
 
 **Fluxos alternativos:**
@@ -208,6 +210,10 @@
 3. O sistema apresenta os imóveis filtrados.(FE01)
 4. O caso de uso retorna para o passo 2 do fluxo principal.
 <hr>
+
+**-FA02** O usuário deseja buscar outro imóvel.
+1. O usuário informa que deseja outro imóvel.
+2. O caso de uso retorna para o passo 1 do fluxo principal
 
 **Fluxos de exceção:**
 
@@ -242,23 +248,19 @@
 <hr>
 
 **Fluxo Principal:**
-
-1. O usuário seleciona o imóvel.
-2. O sistema exibe as informações do imóvel.
-3. O usuário confirma o interesse pelo imóvel. (FA01)
-4. O sistema apresenta os campos para o preenchimento da proposta.
-5. O usuário preenche os campos. 
-6. O sistema informa ao corretor responsável o interesse sobre o imóvel.
-7. O sistema redireciona o usuário para o chat com o corretor responsável.
-8. O caso de uso é encerrado.
+1. O usuário confirma o interesse pelo imóvel.
+2. O sistema apresenta os campos para o preenchimento da proposta.
+3. O usuário preenche os campos. (FE01)
+4. O sistema informa ao corretor responsável o interesse sobre o imóvel.
+5. O sistema redireciona o usuário para o chat com o corretor responsável.
+6. O caso de uso é encerrado.
 <hr>
 
 **Fluxos de exceção:**
 
 **-FE01:** Proposta inválida.
-
 1. O sistema informa que a proposta não é válida.
-2. Caso de uso retorna para o passo 4 do fluxo principal.
+2. Caso de uso retorna para o passo 3 do fluxo principal.
 <hr>
 
 [Links](#links)  

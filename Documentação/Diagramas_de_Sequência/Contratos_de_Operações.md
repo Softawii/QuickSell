@@ -24,17 +24,13 @@
 
 </br> </br>
 
-## **UC05 - Fazer Proposta por Imóvel**
-
-</br>
-
-### **selecionarImovel(idImovel)**  
+### **Operação:** selecionarImovel(idImovel)
 <hr>
 
 **Responsabilidade:** Selecionar o imóvel que será usado na operação.
 <hr>
 
-**Referências cruzadas:** Caso de Uso: "UC05 - Fazer proposta por imóvel".
+**Referências cruzadas:** Caso de Uso: "UC04 - Buscar Imóvel".
 <hr>
 
 **Pré-Condições:** 
@@ -47,6 +43,10 @@
 <hr>
 
 </br> </br>
+
+## **UC05 - Fazer Proposta por Imóvel**
+
+</br>
 
 ### **apresentarFormulárioDeProposta()**  
 
