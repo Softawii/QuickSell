@@ -1,9 +1,3 @@
-<head>
-<style type="text/css">
-</style>
-</head>
-
-
 # **Diagrama de Casos de uso**
 
 ![](Diagrama_de_Casos_de_Uso.png)
@@ -43,7 +37,6 @@
 
 
 ## **UC01 - Cadastrar usuário**  
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
@@ -90,7 +83,6 @@
 
 
 ## **UC02 - Cadastrar corretor**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Administrador.
 <hr>
@@ -131,7 +123,6 @@
 
 
 ## **UC03 - Realizar login**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário
 <hr>
@@ -187,7 +178,6 @@
 
 
 ## **UC04 - Buscar imóvel**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
@@ -243,7 +233,6 @@
 
 
 ## **UC05 - Fazer proposta por imóvel**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
@@ -289,7 +278,6 @@
 
 
 ## **UC06 - Registrar imóvel**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
@@ -332,7 +320,6 @@
 
 
 ## **UC07 - Vender imóvel.**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
@@ -388,7 +375,6 @@
 
 
 ## **UC08 - Enviar mensagem**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
@@ -437,7 +423,6 @@
 
 
 ## **UC09 - Emitir relatório**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Corretor e administrador.
 <hr>
@@ -490,7 +475,6 @@
 
 
 ## **UC10 - Remover cadastro**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Administrador.
 <hr>
@@ -540,7 +524,6 @@
 
 
 ## **UC11 - Editar cadastro da conta**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
@@ -592,7 +575,6 @@
 
 
 ## **UC12 - Editar cadastro do imóvel**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
@@ -645,7 +627,6 @@
 
 
 ## **UC13 - Acessar perfil**
-<hr  style="border-width:4px">
 
 **Lista de atores:** Usuário.
 <hr>
