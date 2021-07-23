@@ -1,7 +1,7 @@
 echo off
 set arg1=%~dp0%~1
 set currentFolder=%~dp0
-set astah_commandw="C:\Program Files\astah-UML\astah-commandw.exe"
+set astah_commandw="C:\Program Files\astah-professional\astah-commandw.exe"
 set filename=Diagrama_de_Casos_de_Uso.asta
 set imagesFolderName=\%filename:~0,-5%
 
