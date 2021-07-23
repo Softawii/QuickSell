@@ -20,6 +20,6 @@ Além disso, nossos funcionários poderão receber essas propostas dos clientes,
 </br> </br>
 
 # **Links**
-- [Mini-Mundo](\Documentação\Mini-Mundo.md)
+- [Mini-Mundo](/Documentação/Mini-Mundo.md)
 - [Documento de Requisitos](/Documentação/Documento_de_Requisitos.md)
 - [Documento de Casos de Uso](/Documentação/Casos_de_Uso/Casos_de_Uso.md)
