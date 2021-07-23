@@ -1,19 +1,25 @@
-# Mini-mundo – Imobiliária Imor Tal
+# **Escopo**
 
-A administradora de Imóveis &quot;Imor Tal&quot; é uma empresa que cuida, principalmente, da compra e venda de imóveis residenciais e comerciais no Grande Rio, dentre outras atividades.
+O sistema (QuickSell) tem como principal missão automatizar o sistema de registro de imóveis e acelerar as vendas da imobiliária Imor Tal, através de um sistema web que permitirá o contato direto entre usuários e corretores, agilizando a comunicação e a visualização dos imóveis.
 
-O atendimento atualmente é demorado e, muitas vezes, incompleto devido a demora no manuseio de muitas fichas, acarretando a perda de muitas oportunidades de negócio.
+Através do site o cliente conseguirá, além de procurar seu imóvel ideal, propor a venda de suas próprias propriedades.
 
-Todos os imóveis são comprados pela imobiliária para, então, serem colocados à venda. A direção da empresa definiu como prioridade automatizar o registro dos imóveis e acelerar a negociação.
+Além disso, nossos funcionários poderão receber essas propostas dos clientes, registrar e anunciar novos imóveis e gerenciar de forma automática e mais organizada o registro de compras e vendas da imobiliária.
 
-A imobiliária considera &quot;proprietário&quot; toda pessoa que participou de um processo de comercialização (compra ou venda) no papel de dono (antigo ou novo).
+</br> </br>
 
-Entre outras informações, o sistema deverá ser capaz de controlar os imóveis comprados e os vendidos, e emitir:
 
-a) Relação de todos os imóveis disponíveis para venda, contendo para cada um: Endereço, Bairro, Área(m2), descrição, Proprietário antigo (o atual é a administradora) e o Preço Mínimo para venda.
+# **Histórico de Alterações**
 
-b) Relação de todos os imóveis vendidos, por bairro, contendo para cada um: Bairro, Proprietário antigo, Proprietário novo, Preço de venda (ao proprietário novo) e o Preço de compra (pela imobiliária).
+| **Data** | **Versão** | **Descrição** | **Autor** |
+| --- | --- | --- | --- |
+| 18/10/19 | 1.0 | Análise do projeto | Gabriel Perez, Sérgio Rezende, Bruno Almeida, Guilherme Silva, Eduardo Vieira. |
+| 05/11/19 | 2.0 | Ajuste do projeto | Gabriel Perez, Sérgio Rezende, Bruno Almeida, Guilherme Silva, Eduardo Vieira. |
+| 01/07/21 | 3.0 | Aprimoramento do projeto | Isaque Diniz,Sérgio Rezende,Bruno Almeida,Guilherme Silva,Eduardo Vieira,Nicolas Magalhães. |
 
-c) Relação dos proprietários que compraram mais de um imóvel na imobiliária (nome, cpf, endereço, telefone).
+</br> </br>
 
-d) Relação dos proprietários que venderam mais de um imóvel para a imobiliária (nome, telefone).
+# **Links**
+- [Mini-Mundo](\Documentação\Mini-Mundo.md)
+- [Documento de Requisitos](\Documentação\Documento_de_Requisitos.md)
+- [Documento de Casos de Uso](\Documentação\Casos_de_Uso\Casos_de_Uso.md)
