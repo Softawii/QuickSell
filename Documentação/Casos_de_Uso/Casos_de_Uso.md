@@ -195,31 +195,23 @@
 <hr>
 
 **Fluxo Principal:**
-
-1. O usuário pesquisa o imóvel informando o bairro. (FA01) (FE01)
-2. O sistema procura os imóveis que se encaixam na busca do usuário. (FE02)
-3. O sistema apresenta os imóveis que se encaixam na busca do usuário.
-4. O caso de uso é encerrado.
+1. O sistema oferece a lista com todos os imóveis ao usuários.
+2. Usuário procura o imóvel desejado.(FA01)
+3. Caso de Uso encerrado.
 <hr>
 
 **Fluxos alternativos:**
 
 **-FA01:** Filtro de busca.
-
 1. O sistema oferece a opção de filtrar as buscas.
 2. O usuário escolhe a opção desejada.
-3. O caso de uso retorna para o passo 2 do fluxo principal.
+3. O sistema apresenta os imóveis filtrados.(FE01)
+4. O caso de uso retorna para o passo 2 do fluxo principal.
 <hr>
 
 **Fluxos de exceção:**
 
-**-FE01:** Bairro inexistente.
-
-1. O sistema informa que o bairro informado não existe.
-2. O caso de uso retorna para o passo 1 do fluxo principal.
-
-**-FE02:** Não possui imóveis com as características de busca.
-
+**-FE01:** Não possui imóveis com as características de busca.
 1. O sistema informa que não há imóveis disponíveis com aquele perfil de pesquisa.
 2. O caso de uso retorna para o passo 1 do fluxo principal.
 <hr>
