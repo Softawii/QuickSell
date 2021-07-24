@@ -14,12 +14,30 @@
 <hr>
 
 **Pré-Condições:** 
-- Ter algum imóvel para ser selecionado.
-- Buscar e escolher o imóvel.
+- Existir pelo menos um imóvel na lista de imóveis.
 <hr>
 
 **Pós-Condições:** 
-- Informações do imóvel enviadas.
+- Sistema apresenta a lista de imóveis para o usuário.
+<hr>
+
+</br> </br>
+
+### **Operação:** filtrarImóveis(bairro, preço, tipoDeImovel)
+<hr>
+
+**Responsabilidade:** Usuário filtra os imóveis da lista de acordo com as suas preferências em bairro, preço e tipo de imóvel.
+<hr>
+
+**Referências cruzadas:** Caso de Uso: "UC04 - Buscar imóvel". Regra de Negócio : "RN02"
+<hr>
+
+**Pré-Condições:** 
+- Lista de imóveis apresentada.
+<hr>
+
+**Pós-Condições:** 
+- Imóveis filtrados da lista são apresentados para o usuário.
 <hr>
 
 </br> </br>
@@ -27,7 +45,7 @@
 ### **Operação:** selecionarImovel(idImovel)
 <hr>
 
-**Responsabilidade:** Selecionar o imóvel que será usado na operação.
+**Responsabilidade:** Selecionar o imóvel que o usuário deseja.
 <hr>
 
 **Referências cruzadas:** Caso de Uso: "UC04 - Buscar Imóvel".
@@ -35,11 +53,11 @@
 
 **Pré-Condições:** 
 - Ter algum imóvel para ser selecionado.
-- Buscar e escolher o imóvel.
+- Usuário escolheu o imóvel.
 <hr>
 
 **Pós-Condições:** 
-- Informações do imóvel enviadas.
+- Informações do imóvel exibidas para o usuário.
 <hr>
 
 </br> </br>

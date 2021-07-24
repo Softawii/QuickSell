@@ -198,7 +198,7 @@
 1. O sistema oferece a lista com todos os imóveis ao usuários.
 2. Usuário procura o imóvel desejado.(FA01)
 3. O usuário seleciona o imóvel.
-4. O sistema exibe as informações do imóvel.(FA02)
+4. O sistema exibe as informações do imóvel.
 5. Caso de Uso encerrado.
 <hr>
 
@@ -210,10 +210,6 @@
 3. O sistema apresenta os imóveis filtrados.(FE01)
 4. O caso de uso retorna para o passo 2 do fluxo principal.
 <hr>
-
-**-FA02** O usuário deseja buscar outro imóvel.
-1. O usuário informa que deseja outro imóvel.
-2. O caso de uso retorna para o passo 1 do fluxo principal
 
 **Fluxos de exceção:**
 
