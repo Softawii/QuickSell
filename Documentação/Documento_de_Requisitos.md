@@ -66,7 +66,7 @@ Visto a especificidade da área de atuação do projeto, percebemos que a melhor
 |**Regras de Negócio**
 |---
 |RN001: O sistema deve permitir o cadastro de clientes que forneçam nome, CPF, ndereço, telefone e e-mail. (RF001)
-|RN002: O sistema deve possibilitar o filtro por preço de imóveis e por bairro. (RF006)
+|RN002: O sistema deve possibilitar o filtro por preço de imóveis, por bairro e por tipo (Residencial ou comercial). (RF006)
 |RN003: Apenas administradores podem cadastrar novos corretores. (RF008)
 |RN004: O chat deverá conter filtro de palavras. (RF007)
 |RN005: O sistema não deve apresentar as ofertas de clientes para outros clientes.
