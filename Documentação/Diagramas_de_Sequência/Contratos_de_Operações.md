@@ -4,6 +4,10 @@
 
 </br>
 
+![](Buscar_Imovel.png)
+
+</br>
+
 ### **Operação:** iniciarBusca() 
 <hr>
 
@@ -66,7 +70,11 @@
 
 </br>
 
-### **apresentarFormulárioDeProposta()**  
+![](Fazer_Proposta_por_Imovel.png)
+
+</br>
+
+### **Operação:** apresentarFormulárioDeProposta()  
 
 **Responsabilidade:** Mostrar o formulário da proposta para ser preenchido pelo usuário.
 <hr>
@@ -87,7 +95,7 @@
 
 </br> </br>
 
-### **enviarProposta()**  
+### **Operação:** enviarProposta() 
 
 **Responsabilidade:** Enviar proposta do usuário ao corretor responsável pelo imóvel selecionado.
 <hr>
@@ -106,7 +114,7 @@
 
 </br> </br>
 
-### **confirmaPropostaEnviada()**  
+### **Operação:** confirmaPropostaEnviada()
 
 **Responsabilidade:** Confirmar com o usuário que a proposta foi enviada ao corretor.
 <hr>

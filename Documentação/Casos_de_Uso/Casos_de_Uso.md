@@ -54,7 +54,8 @@
 <hr>
 
 **Fluxo Principal:**
-1. O usuário fornece os dados requeridos. (FE01) 
+
+1. O usuário fornece os dados requeridos. (FE01)
 2. O sistema verifica os dados do usuário. (FE02)
 3. O sistema confirma o cadastro.  
 4. O sistema redireciona o usuário para a tela de autenticação.
@@ -195,6 +196,7 @@
 <hr>
 
 **Fluxo Principal:**
+
 1. O sistema oferece a lista com todos os imóveis ao usuários.
 2. Usuário procura o imóvel desejado.(FA01)
 3. O usuário seleciona o imóvel.
@@ -205,6 +207,7 @@
 **Fluxos alternativos:**
 
 **-FA01:** Filtro de busca.
+
 1. O sistema oferece a opção de filtrar as buscas.
 2. O usuário escolhe a opção desejada.
 3. O sistema apresenta os imóveis filtrados.(FE01)
@@ -214,6 +217,7 @@
 **Fluxos de exceção:**
 
 **-FE01:** Não possui imóveis com as características de busca.
+
 1. O sistema informa que não há imóveis disponíveis com aquele perfil de pesquisa.
 2. O caso de uso retorna para o passo 1 do fluxo principal.
 <hr>
@@ -244,6 +248,7 @@
 <hr>
 
 **Fluxo Principal:**
+
 1. O usuário confirma o interesse pelo imóvel.
 2. O sistema apresenta os campos para o preenchimento da proposta.
 3. O usuário preenche os campos. (FE01)
@@ -255,6 +260,7 @@
 **Fluxos de exceção:**
 
 **-FE01:** Proposta inválida.
+
 1. O sistema informa que a proposta não é válida.
 2. Caso de uso retorna para o passo 3 do fluxo principal.
 <hr>
@@ -382,6 +388,7 @@
 <hr>
 
 **Fluxo Principal:**
+
 1. O usuário escolhe a pessoa que deseja enviar a mensagem.
 2. O usuário digita o texto para o destinatário. (FA01) (FE01)
 3. O sistema confirma que a mensagem foi enviada.
@@ -392,6 +399,7 @@
 **Fluxos alternativos:**
 
 **-FA01:** O usuário escolhe mandar uma mensagem por áudio.
+
 1. O usuário seleciona a opção de enviar áudio.
 2. O usuário grava o áudio a ser enviado.
 3. O caso de uso retorna para o passo 3 do fluxo principal.
@@ -400,6 +408,7 @@
 **Fluxos de exceção:**
 
 **-FE01:** O usuário digita palavras ofensivas.
+
 1. O sistema oculta a palavra ofensiva.
 2. O caso de uso retorna para o passo 3 do fluxo principal.
 <hr>
@@ -482,6 +491,7 @@
 <hr>
 
 **Fluxo Principal:**
+
 1. O administrador busca o usuário.
 2. O administrador solicita a remoção do cadastro de um usuário ou o privilégio de corretor da conta.
 3. O sistema pede a confirmação.
@@ -494,6 +504,7 @@
 **Fluxos alternativos:**
 
 **-FA01:** O administrador não confirma a ação.
+
 1. O sistema cancela a ação.
 2. Caso de uso encerrado.
 <hr>
@@ -501,6 +512,7 @@
 **Fluxos de exceção:**
 
 **-FE01:** Usuário não encontrado.
+
 1. O sistema notifica que o usuário buscado é inválido e/ou não existe.
 2. O caso de uso retorna ao passo 1 do fluxo principal.
 <hr>
