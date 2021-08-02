@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         FlatCyanLightIJTheme.setup();
 
-        new LoginFrame(400, 500);
+        new HomeFrame(1024, 720);
 
 
     }
