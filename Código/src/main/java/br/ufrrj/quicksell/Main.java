@@ -1,0 +1,19 @@
+package br.ufrrj.quicksell;
+
+import br.ufrrj.quicksell.views.HomeFrame;
+import br.ufrrj.quicksell.views.LoginFrame;
+import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+
+import javax.swing.*;
+
+public class Main {
+    // loginFrameWidth = 400;
+    // loginFrameHeight = 500;
+    public static void main(String[] args) {
+        FlatCyanLightIJTheme.setup();
+
+        new LoginFrame(400, 500);
+
+
+    }
+}
