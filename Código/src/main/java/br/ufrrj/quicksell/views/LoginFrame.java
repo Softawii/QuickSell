@@ -133,7 +133,7 @@ public class LoginFrame extends JFrame {
                 signInButton = new JButton();
                 signInButton.setPreferredSize(new Dimension(0, 35));
                 signInButton.setText("Sign in");
-                signInButton.setBackground(new Color(211, 211,211));
+                signInButton.setBackground(new Color(37, 138,164));
                 {
                     gbc.insets = new Insets(10, 0, 0, 0);
                     gbc.gridy = 4;
@@ -144,11 +144,18 @@ public class LoginFrame extends JFrame {
 
 
                 // SignUpButton Inicio
-                signUpButton = new JButton("Create an account");
+                signUpButton = new JButton();
                 signUpButton.setContentAreaFilled(true);
                 signUpButton.setHorizontalTextPosition(JButton.LEFT);
                 signUpButton.setFont(new Font("Arial", Font.BOLD, 10));
-                signUpButton.setBackground(new Color(211, 211,211));
+                signUpButton.setLayout(new BorderLayout());
+                JLabel labelteste = new JLabel("Create an account");
+                labelteste.setFont(new Font("Arial", Font.BOLD, 10));
+                labelteste.setForeground(Color.white);
+                labelteste.setHorizontalAlignment(JLabel.CENTER);
+                labelteste.setHorizontalTextPosition(JLabel.CENTER);
+                signUpButton.add(labelteste);
+                signUpButton.setBackground(new Color(37, 138,164));
                 {
                     gbc.gridy = 5;
                     gbc.insets = new Insets(15, 0, 0, 0);

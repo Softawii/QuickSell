@@ -1,7 +1,10 @@
 package br.ufrrj.quicksell.views;
 
+import br.ufrrj.quicksell.entities.Property;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 import static java.util.Objects.requireNonNull;
@@ -20,13 +23,26 @@ public class HomeFrame extends JFrame {
     private JButton signOutButton;
 
     private JPanel westFooter;
-    private JLabel footerLabel;
+    private JLabel westFooterLabel;
 
     private JPanel center;
-    private JPanel centerHeader;
-    private JPanel centerBody;
-    private JPanel centerFooter;
 
+    private JPanel centerHeader;
+    private JTextField searchField;
+    private JButton searchButton;
+    private JButton filterButton;
+
+    private JPanel centerBody;
+    private ArrayList<JPanel> propertyContainer;
+    private JLabel propertyImage;
+    private JLabel adressLabel;
+    private JLabel priceLabel;
+    private JButton proposalButton;
+
+    private JPanel centerFooter;
+    private JLabel centerFooterLabel;
+
+    public ArrayList<Property> properties;
 
     public HomeFrame(int width, int height) {
         super();
@@ -52,17 +68,13 @@ public class HomeFrame extends JFrame {
         {
             // WestHeader Inicio
             westHeader = new JPanel();
-            //westHeader.setBackground(Color.pink);
-            {
-
-            }
             west.add(westHeader, BorderLayout.NORTH);
             // WestHeader Final
 
 
             // WestBody Inicio
             westBody = new JPanel();
-            //westBody.setBackground(Color.yellow);
+            westBody.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 4, new Color(190, 190, 190)));
             westBody.setLayout(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
             {
@@ -129,8 +141,8 @@ public class HomeFrame extends JFrame {
             westFooter = new JPanel();
             //westFooter.setBackground(Color.green);
             {
-                footerLabel = new JLabel("\u00A9 2021 QuickSell");
-                westFooter.add(footerLabel);
+                westFooterLabel = new JLabel("\u00A9 2021 QuickSell");
+                westFooter.add(westFooterLabel);
             }
             west.add(westFooter, BorderLayout.SOUTH);
 
@@ -143,20 +155,63 @@ public class HomeFrame extends JFrame {
         center.setLayout(new BorderLayout());
         {
             centerHeader = new JPanel();
-            centerHeader.setBackground(Color.gray);
+            centerHeader.setLayout(new GridBagLayout());
+            GridBagConstraints gbc = new GridBagConstraints();
+            {
+                JLabel spacing1 = new JLabel();
+                {
+                    gbc.weightx = 2.0;
+                }
+                centerHeader.add(spacing1, gbc);
 
+                searchField = new JTextField(50);
+                {
+                    gbc.fill = GridBagConstraints.VERTICAL;
+                    gbc.weightx = 0.05;
+                }
+                centerHeader.add(searchField, gbc);
+
+                searchButton = new JButton();
+                ImageIcon image = getImageWidth("SearchIcon.png", 18, 17);
+                searchButton.setIcon(image);
+                centerHeader.add(searchButton, gbc);
+
+
+                filterButton = new JButton("Filter");
+                ImageIcon image2 = getImageWidth("FilterIcon.png", 15, 17);
+                filterButton.setIcon(image2);
+                centerHeader.add(filterButton, gbc);
+
+                JLabel spacing2 = new JLabel();
+                {
+                    gbc.weightx = 2.0;
+                }
+                centerHeader.add(spacing2, gbc);
+
+            }
             center.add(centerHeader, BorderLayout.NORTH);
 
 
             centerBody = new JPanel();
-            centerBody.setBackground(Color.white);
-
+            centerBody.setLayout(new GridBagLayout());
+            GridBagConstraints gbc2 = new GridBagConstraints();
+            {
+                propertyContainer = new ArrayList<JPanel>();
+//                for(int i = 0; i < properties.size(); i++){
+//                    JPanel temp = new JPanel();
+//                    propertyContainer.add(temp);
+//
+//
+//                }
+            }
             center.add(centerBody, BorderLayout.CENTER);
 
 
             centerFooter = new JPanel();
-            centerFooter.setBackground(Color.BLACK);
-
+            {
+                centerFooterLabel = new JLabel("V2.0.0");
+                centerFooter.add(centerFooterLabel);
+            }
             center.add(centerFooter, BorderLayout.SOUTH);
         }
         this.add(center, BorderLayout.CENTER);
