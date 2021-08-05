@@ -22,7 +22,6 @@ public class LoginFrame extends JFrame {
     private JLabel footerLabel;
 
 
-
     private JPanel container;
 
     public LoginFrame(int width, int height) {
@@ -132,9 +131,15 @@ public class LoginFrame extends JFrame {
                 // SignInButton Inicio
                 signInButton = new JButton();
                 signInButton.setPreferredSize(new Dimension(0, 35));
-                signInButton.setText("Sign in");
                 signInButton.setBackground(new Color(37, 138,164));
+                signInButton.setLayout(new BorderLayout());
                 {
+                    JLabel buttonLabel = new JLabel("Sign in");
+                    buttonLabel.setForeground(Color.white);
+                    buttonLabel.setHorizontalAlignment(JLabel.CENTER);
+                    buttonLabel.setHorizontalTextPosition(JLabel.CENTER);
+                    signInButton.add(buttonLabel);
+
                     gbc.insets = new Insets(10, 0, 0, 0);
                     gbc.gridy = 4;
                     gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -145,18 +150,15 @@ public class LoginFrame extends JFrame {
 
                 // SignUpButton Inicio
                 signUpButton = new JButton();
-                signUpButton.setContentAreaFilled(true);
-                signUpButton.setHorizontalTextPosition(JButton.LEFT);
-                signUpButton.setFont(new Font("Arial", Font.BOLD, 10));
-                signUpButton.setLayout(new BorderLayout());
-                JLabel labelteste = new JLabel("Create an account");
-                labelteste.setFont(new Font("Arial", Font.BOLD, 10));
-                labelteste.setForeground(Color.white);
-                labelteste.setHorizontalAlignment(JLabel.CENTER);
-                labelteste.setHorizontalTextPosition(JLabel.CENTER);
-                signUpButton.add(labelteste);
                 signUpButton.setBackground(new Color(37, 138,164));
+                signUpButton.setLayout(new BorderLayout());
                 {
+                    JLabel buttonLabel1 = new JLabel("Create an account");
+                    buttonLabel1.setForeground(Color.white);
+                    buttonLabel1.setHorizontalAlignment(JLabel.CENTER);
+                    buttonLabel1.setHorizontalTextPosition(JLabel.CENTER);
+                    signUpButton.add(buttonLabel1);
+
                     gbc.gridy = 5;
                     gbc.insets = new Insets(15, 0, 0, 0);
                     gbc.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -171,15 +173,13 @@ public class LoginFrame extends JFrame {
     }
 
     private void createFooter() {
-        JPanel footer = new JPanel();
+        footer = new JPanel();
         {
             footerLabel = new JLabel("\u00A9 2021 QuickSell");
             footer.add(footerLabel);
         }
         this.add(footer, BorderLayout.SOUTH);
     }
-
-
 
     public ImageIcon getImageWidth(String path, int width, int height) {
         ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource(path)));

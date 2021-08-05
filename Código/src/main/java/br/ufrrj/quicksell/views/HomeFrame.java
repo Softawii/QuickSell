@@ -32,7 +32,7 @@ public class HomeFrame extends JFrame {
     private JButton searchButton;
     private JButton filterButton;
 
-    private JPanel centerBody;
+    private JScrollPane centerBody;
     private ArrayList<JPanel> propertyContainer;
     private JLabel propertyImage;
     private JLabel adressLabel;
@@ -141,7 +141,7 @@ public class HomeFrame extends JFrame {
             westFooter = new JPanel();
             //westFooter.setBackground(Color.green);
             {
-                westFooterLabel = new JLabel("\u00A9 2021 QuickSell");
+                westFooterLabel = new JLabel("V2.0.0");
                 westFooter.add(westFooterLabel);
             }
             west.add(westFooter, BorderLayout.SOUTH);
@@ -192,29 +192,28 @@ public class HomeFrame extends JFrame {
             center.add(centerHeader, BorderLayout.NORTH);
 
 
-            centerBody = new JPanel();
-            centerBody.setLayout(new GridBagLayout());
-            GridBagConstraints gbc2 = new GridBagConstraints();
-            {
-                propertyContainer = new ArrayList<JPanel>();
+//            centerBody = new JScrollPane();
+//            centerBody.setLayout(new GridBagLayout());
+//            GridBagConstraints gbc2 = new GridBagConstraints();
+//            {
+//                propertyContainer = new ArrayList<JPanel>();
 //                for(int i = 0; i < properties.size(); i++){
 //                    JPanel temp = new JPanel();
 //                    propertyContainer.add(temp);
 //
 //
 //                }
-            }
-            center.add(centerBody, BorderLayout.CENTER);
+//            }
+//            center.add(centerBody, BorderLayout.CENTER);
 
 
             centerFooter = new JPanel();
             {
-                centerFooterLabel = new JLabel("V2.0.0");
+                centerFooterLabel = new JLabel("\u00A9 2021 QuickSell ");
                 centerFooter.add(centerFooterLabel);
             }
             center.add(centerFooter, BorderLayout.SOUTH);
         }
         this.add(center, BorderLayout.CENTER);
     }
-
 }
