@@ -16,7 +16,7 @@
 
 - [**UC06 - Registrar imóvel**](#uc06---registrar-imóvel)
 
-- [**UC07 - Vender imóvel.**](#uc07---vender-imóvel)
+- [**UC07 - Acessar propostas**](#uc07---acessar-propostas)
 
 - [**UC08 - Enviar mensagem**](#uc08---enviar-mensagem)
 
@@ -252,9 +252,8 @@
 1. O usuário confirma o interesse pelo imóvel.
 2. O sistema apresenta os campos para o preenchimento da proposta.
 3. O usuário preenche os campos. (FE01)
-4. O sistema informa ao corretor responsável o interesse sobre o imóvel.
-5. O sistema redireciona o usuário para o chat com o corretor responsável.
-6. O caso de uso é encerrado.
+4. O sistema informa ao proprietário responsável o interesse sobre o imóvel.
+5. O caso de uso é encerrado.
 <hr>
 
 **Fluxos de exceção:**
@@ -281,7 +280,7 @@
 **Visão geral:** O usuário faz o registro de um imóvel no sistema para vender.
 <hr>
 
-**Referências cruzadas:** Requisitos: RF011. Casos de uso: UC07 e UC08.
+**Referências cruzadas:** Requisitos: RF011. Casos de uso: UC08.
 <hr>
 
 **Pré-Condições:** O usuário precisa ter realizado login.
@@ -315,51 +314,37 @@
 
 
 
-## **UC07 - Vender imóvel.**
+## **UC07 - Acessar propostas**
 
 **Lista de atores:** Usuário.
 <hr>
 
-**Visão geral:** O usuário irá oferecer a proposta de venda do seu imóvel.
+**Visão geral:** O usuário verá as propostas que foram feitas sobre o seu imóvel.
 <hr>
 
-**Referências cruzadas:** Requisitos: RF003 e RF009. Casos de uso: UC06.
+**Referências cruzadas:** Requisitos: ?? . Casos de uso: UC05.
 <hr>
 
-**Pré-Condições:** O usuário deve estar autenticado no sistema e deve ter registrado seu imóvel.
+**Pré-Condições:** O usuário deve estar autenticado no sistema.
 <hr>
 
-**Pós-Condições:** A proposta do usuário é enviada à imobiliária ou a proposta do corretor é enviada aos usuários.
+**Pós-Condições:** O usuário consegue ver as propostas sobre seu imóvel.
 <hr>
 
 **Fluxo Principal:**
 
-1. O usuário seleciona qual dos seus imóveis irá vender para a imobiliária. (FA01)
-2. O usuário informa a proposta sobre o imóvel.
-3. O sistema confirma a proposta. (FE01)
-4. O sistema adiciona a proposta em sua lista de vendas para a imobiliária.
-5. O sistema envia notificação para os corretores.
-6. Caso de uso encerrado.
+1. O usuário acessa suas propostas. (FE01)
+2. O usuário escolhe a proposta que deseja ver.
+3. O sistema apresenta as informações da proposta.
+4. Caso de uso encerrado.
 <hr>
 
-**Fluxos alternativos:**
+**Fluxos exceção:**
 
-**-FA01:** Vender imóvel para clientes.
+**-FE01:** O usuário não possui imóveis a venda.
 
-1. O corretor escolhe qual imóvel da imobiliária irá vender
-2. O usuário informa a proposta sobre o imóvel.
-3. O sistema confirma a proposta.
-4. O sistema adiciona em sua lista de vendas para os clientes.
-5. Caso de uso encerrado.
-<hr>
-
-**Fluxos de exceção:**
-
-**-FE01:** Proposta inválida.
-
-1. O sistema informa que a proposta não foi informada da maneira correta.
-2. O sistema exibe a maneira correta de enviar a proposta.
-3. O caso de uso retorna ao passo 2 do fluxo principal.
+1. O sistema informa que é necessário registrar imóveis para receber propostas.
+2. Caso de uso encerrado.
 <hr>
 
 [Links](#links)  
@@ -378,7 +363,7 @@
 **Visão geral:** Irá permitir uma comunicação entre o usuário e o corretor, a fim de melhorar a experiência da compra ou venda do imóvel.
 <hr>
 
-**Referências cruzadas:** Requisitos: RF007. Casos de uso: UC05 e UC07.
+**Referências cruzadas:** Requisitos: RF007. Casos de uso: UC05.
 <hr>
 
 **Pré-Condições:** O usuário precisa ter realizado login.
