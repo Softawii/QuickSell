@@ -74,6 +74,8 @@ Visto a especificidade da área de atuação do projeto, percebemos que a melhor
 |RN007: Os relatórios com a relação de todos os imóveis disponíveis para a venda devem incluir as informações: endereço, Bairro, Área (m²), descrição, proprietário antigo (o atual é a administradora) e o Preço Mínimo para venda. (RF016)
 |RN008: Os relatórios com relação de todos os imóveis vendidos devem incluir as informações: Bairro, Proprietário antigo, proprietário novo, preço de venda (ao proprietário novo) e o Preço de compra (pela imobiliária). (RF017)
 |RN009: Os relatórios dos clientes que compraram e/ou venderam mais de um imóvel com a imobiliária devem incluir as informações de nome, CPF, endereço e telefone. (RF019) (RF020)
+|RN010: A proposta de um imóvel deve conter as informações pessoais do usuário que a realiza, valor proposto e uma descrição adicional.
+|RN011: A proposta de um imóvel pode ser editada pelo usuário.
 
 <br/>
 

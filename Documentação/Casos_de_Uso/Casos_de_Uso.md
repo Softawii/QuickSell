@@ -18,7 +18,7 @@
 
 - [**UC07 - Acessar propostas**](#uc07---acessar-propostas)
 
-- [**UC08 - Enviar mensagem**](#uc08---enviar-mensagem)
+- [**UC08 - Editar proposta**](#uc08---editar-proposta)
 
 - [**UC09 - Emitir relatório**](#uc09---emitir-relatório)
 
@@ -355,47 +355,30 @@
 
 
 
-## **UC08 - Enviar mensagem**
+## **UC08 - Editar proposta**
 
 **Lista de atores:** Usuário.
 <hr>
 
-**Visão geral:** Irá permitir uma comunicação entre o usuário e o corretor, a fim de melhorar a experiência da compra ou venda do imóvel.
+**Visão geral:** Irá permitir que o usuário altere atributos de uma proposta ja feita.
 <hr>
 
-**Referências cruzadas:** Requisitos: RF007. Casos de uso: UC05.
+**Referências cruzadas:** Requisitos: RN011. Casos de uso: UC07.
 <hr>
 
-**Pré-Condições:** O usuário precisa ter realizado login.
+**Pré-Condições:** O usuário precisa ter realizado login e acessar a proposta.
 <hr>
 
-**Pós-Condições:** O usuário terá se comunicado com o destinatário.
+**Pós-Condições:** A proposta é editada com sucesso.
 <hr>
 
 **Fluxo Principal:**
 
-1. O usuário escolhe a pessoa que deseja enviar a mensagem.
-2. O usuário digita o texto para o destinatário. (FA01) (FE01)
-3. O sistema confirma que a mensagem foi enviada.
-4. O sistema informa o status da mensagem.
+1. O usuário solicita edição da proposta.
+2. O usuário preenche os campos com as informações alteradas
+3. O usuário confirma a ação.
+4. O sistema confirma a edição da proposta.
 5. O caso de uso é encerrado.
-<hr>
-
-**Fluxos alternativos:**
-
-**-FA01:** O usuário escolhe mandar uma mensagem por áudio.
-
-1. O usuário seleciona a opção de enviar áudio.
-2. O usuário grava o áudio a ser enviado.
-3. O caso de uso retorna para o passo 3 do fluxo principal.
-<hr>
-
-**Fluxos de exceção:**
-
-**-FE01:** O usuário digita palavras ofensivas.
-
-1. O sistema oculta a palavra ofensiva.
-2. O caso de uso retorna para o passo 3 do fluxo principal.
 <hr>
 
 [Links](#links)  
@@ -424,30 +407,18 @@
 <hr>
 
 **Fluxo Principal:**
-1. O corretor seleciona o relatório que deseja.
-2. O sistema pede o CPF do corretor para busca no sistema. (FA01)
-3. O sistema verifica o CPF do corretor. (FE01)
-4. O sistema faz a confirmação.
-5. O sistema fornece o relatório.
-6. O sistema informa que o relatório foi emitido com sucesso.
-7. Caso de uso encerrado.
-<hr>
-
-**Fluxos alternativos:**
-
-**-FA01:** O corretor não tem o CPF em mãos.
-
-1. O sistema pede a matrícula do corretor na empresa.
-2. O sistema verifica a matrícula do corretor.
-3. O caso de uso retorna para o passo 4 do fluxo principal.
+1. O corretor seleciona quais relatórios deseja gerar.
+2. O corretor confirma a ação.
+3. O sistema apresenta o relatório com as definições escolhidas pelo usuário.
+4. Caso de uso encerrado.
 <hr>
 
 **Fluxos de exceção:**
 
-**-FE01:** CPF inválido.
+**-FE01:** Nenhum relatório foi escolhido
 
-1. O sistema informa que a matrícula do corretor é inválida.
-2. O caso de uso retorna ao passo 2 do fluxo principal.
+1. O sistema informa que nenhum relatório foie escolhido.
+2. O caso de uso retorna ao passo 1 do fluxo principal.
 <hr>
 
 [Links](#links)  
