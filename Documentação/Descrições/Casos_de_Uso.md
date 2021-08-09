@@ -1,6 +1,6 @@
 # **Diagrama de Casos de uso**
 
-![](Diagrama_de_Casos_de_Uso.png)
+![](./../Diagramas/Caso_de_Uso/Caso_de_Uso.png)
 
 # **Descrição dos Casos de uso**
 ## Links
@@ -30,6 +30,7 @@
 
 - [**UC13 - Acessar perfil**](#uc13---acessar-perfil)
 
+- [**UC14 - Registrar venda**](#uc14---registrar-venda)
 
 
 <br /><br />
@@ -606,6 +607,49 @@
 1. O usuário solicita o acesso ao perfil.
 2. O sistema redireciona o usuário para o perfil.
 3. Caso de uso encerrado.
+<hr>
+
+[Links](#links)  
+
+
+
+<br /><br />
+
+
+
+## **UC14 - Registrar venda**
+
+**Lista de atores:** Corretor.
+<hr>
+
+**Visão geral:** O sistema permitirá que o corretor registre suas vendas de imóveis da imobiliária.
+<hr>
+
+**Referências cruzadas:** Requisitos: RF007.
+<hr>
+
+**Pré-Condições:** O corretor deve estar autenticado no sistema e acessar a proposta que deu inicio a negociação da venda.
+<hr>
+
+**Pós-Condições:** Estado do imóvel atualizado como vendido.
+<hr>
+
+**Fluxo Principal:**
+
+1. O corretor solicita o registro da venda.
+2. O sistema pede o valor final da negociação.
+3. O corretor informa o valor. (FE01)
+4. O sistema atualiza o estado do Imóvel.
+5. O sistema confirma a operação.
+6. Caso de uso encerrado.
+<hr>
+
+**Fluxos de exceção:**
+
+**-FE01:** Valor inserido inválido.
+
+1. O sistema notifica o dado inválido.
+2. O caso de uso retorna ao passo 3 do fluxo principal.
 <hr>
 
 [Links](#links)  
