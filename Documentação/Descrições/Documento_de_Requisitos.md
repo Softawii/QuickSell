@@ -48,7 +48,7 @@ Visto a especificidade da área de atuação do projeto, percebemos que a melhor
 |RF007: O sistema deve permitir que o corretor registre sua venda.
 |RF008: O sistema deve fornecer opção de cadastro de novos corretores. (RF001)
 |RF009: O sistema deve permitir que os corretores anunciem imóveis para os usuários.
-|RF010: O sistema deve permitir que os corretores acessem as propostas dos clientes.
+|RF010: O sistema deve permitir que os usuários possam ver suas propostas.
 |RF011: O sistema deve possibilitar o cadastro de imóveis.
 |RF012: O sistema deve possibilitar a edição de informações de usuários.
 |RF013: O sistema deve possibilitar a edição de informações de imóveis.

@@ -323,7 +323,7 @@
 **Visão geral:** O usuário verá as propostas que foram feitas sobre o seu imóvel.
 <hr>
 
-**Referências cruzadas:** Requisitos: ?? . Casos de uso: UC05.
+**Referências cruzadas:** Requisitos: RF010. Casos de uso: UC05.
 <hr>
 
 **Pré-Condições:** O usuário deve estar autenticado no sistema.
