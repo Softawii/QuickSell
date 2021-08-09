@@ -1,6 +1,6 @@
 # **Diagrama de Casos de uso**
 
-![](Diagrama_de_Casos_de_Uso.png)
+![](./../Diagramas/Caso_de_Uso/Caso_de_Uso.png)
 
 # **Descrição dos Casos de uso**
 ## Links
@@ -16,9 +16,9 @@
 
 - [**UC06 - Registrar imóvel**](#uc06---registrar-imóvel)
 
-- [**UC07 - Vender imóvel.**](#uc07---vender-imóvel)
+- [**UC07 - Acessar propostas**](#uc07---acessar-propostas)
 
-- [**UC08 - Enviar mensagem**](#uc08---enviar-mensagem)
+- [**UC08 - Editar proposta**](#uc08---editar-proposta)
 
 - [**UC09 - Emitir relatório**](#uc09---emitir-relatório)
 
@@ -30,6 +30,7 @@
 
 - [**UC13 - Acessar perfil**](#uc13---acessar-perfil)
 
+- [**UC14 - Registrar venda**](#uc14---registrar-venda)
 
 
 <br /><br />
@@ -252,9 +253,8 @@
 1. O usuário confirma o interesse pelo imóvel.
 2. O sistema apresenta os campos para o preenchimento da proposta.
 3. O usuário preenche os campos. (FE01)
-4. O sistema informa ao corretor responsável o interesse sobre o imóvel.
-5. O sistema redireciona o usuário para o chat com o corretor responsável.
-6. O caso de uso é encerrado.
+4. O sistema informa ao proprietário responsável o interesse sobre o imóvel.
+5. O caso de uso é encerrado.
 <hr>
 
 **Fluxos de exceção:**
@@ -281,7 +281,7 @@
 **Visão geral:** O usuário faz o registro de um imóvel no sistema para vender.
 <hr>
 
-**Referências cruzadas:** Requisitos: RF011. Casos de uso: UC07 e UC08.
+**Referências cruzadas:** Requisitos: RF011. Casos de uso: UC08.
 <hr>
 
 **Pré-Condições:** O usuário precisa ter realizado login.
@@ -315,51 +315,37 @@
 
 
 
-## **UC07 - Vender imóvel.**
+## **UC07 - Acessar propostas**
 
 **Lista de atores:** Usuário.
 <hr>
 
-**Visão geral:** O usuário irá oferecer a proposta de venda do seu imóvel.
+**Visão geral:** O usuário verá as propostas que foram feitas sobre o seu imóvel.
 <hr>
 
-**Referências cruzadas:** Requisitos: RF003 e RF009. Casos de uso: UC06.
+**Referências cruzadas:** Requisitos: RF010. Casos de uso: UC05.
 <hr>
 
-**Pré-Condições:** O usuário deve estar autenticado no sistema e deve ter registrado seu imóvel.
+**Pré-Condições:** O usuário deve estar autenticado no sistema.
 <hr>
 
-**Pós-Condições:** A proposta do usuário é enviada à imobiliária ou a proposta do corretor é enviada aos usuários.
+**Pós-Condições:** O usuário consegue ver as propostas sobre seu imóvel.
 <hr>
 
 **Fluxo Principal:**
 
-1. O usuário seleciona qual dos seus imóveis irá vender para a imobiliária. (FA01)
-2. O usuário informa a proposta sobre o imóvel.
-3. O sistema confirma a proposta. (FE01)
-4. O sistema adiciona a proposta em sua lista de vendas para a imobiliária.
-5. O sistema envia notificação para os corretores.
-6. Caso de uso encerrado.
+1. O usuário acessa suas propostas. (FE01)
+2. O usuário escolhe a proposta que deseja ver.
+3. O sistema apresenta as informações da proposta.
+4. Caso de uso encerrado.
 <hr>
 
-**Fluxos alternativos:**
+**Fluxos exceção:**
 
-**-FA01:** Vender imóvel para clientes.
+**-FE01:** O usuário não possui imóveis a venda.
 
-1. O corretor escolhe qual imóvel da imobiliária irá vender
-2. O usuário informa a proposta sobre o imóvel.
-3. O sistema confirma a proposta.
-4. O sistema adiciona em sua lista de vendas para os clientes.
-5. Caso de uso encerrado.
-<hr>
-
-**Fluxos de exceção:**
-
-**-FE01:** Proposta inválida.
-
-1. O sistema informa que a proposta não foi informada da maneira correta.
-2. O sistema exibe a maneira correta de enviar a proposta.
-3. O caso de uso retorna ao passo 2 do fluxo principal.
+1. O sistema informa que é necessário registrar imóveis para receber propostas.
+2. Caso de uso encerrado.
 <hr>
 
 [Links](#links)  
@@ -370,47 +356,30 @@
 
 
 
-## **UC08 - Enviar mensagem**
+## **UC08 - Editar proposta**
 
 **Lista de atores:** Usuário.
 <hr>
 
-**Visão geral:** Irá permitir uma comunicação entre o usuário e o corretor, a fim de melhorar a experiência da compra ou venda do imóvel.
+**Visão geral:** Irá permitir que o usuário altere atributos de uma proposta ja feita.
 <hr>
 
-**Referências cruzadas:** Requisitos: RF007. Casos de uso: UC05 e UC07.
+**Referências cruzadas:** Requisitos: RN011. Casos de uso: UC07.
 <hr>
 
-**Pré-Condições:** O usuário precisa ter realizado login.
+**Pré-Condições:** O usuário precisa ter realizado login e acessar a proposta.
 <hr>
 
-**Pós-Condições:** O usuário terá se comunicado com o destinatário.
+**Pós-Condições:** A proposta é editada com sucesso.
 <hr>
 
 **Fluxo Principal:**
 
-1. O usuário escolhe a pessoa que deseja enviar a mensagem.
-2. O usuário digita o texto para o destinatário. (FA01) (FE01)
-3. O sistema confirma que a mensagem foi enviada.
-4. O sistema informa o status da mensagem.
+1. O usuário solicita edição da proposta.
+2. O usuário preenche os campos com as informações alteradas
+3. O usuário confirma a ação.
+4. O sistema confirma a edição da proposta.
 5. O caso de uso é encerrado.
-<hr>
-
-**Fluxos alternativos:**
-
-**-FA01:** O usuário escolhe mandar uma mensagem por áudio.
-
-1. O usuário seleciona a opção de enviar áudio.
-2. O usuário grava o áudio a ser enviado.
-3. O caso de uso retorna para o passo 3 do fluxo principal.
-<hr>
-
-**Fluxos de exceção:**
-
-**-FE01:** O usuário digita palavras ofensivas.
-
-1. O sistema oculta a palavra ofensiva.
-2. O caso de uso retorna para o passo 3 do fluxo principal.
 <hr>
 
 [Links](#links)  
@@ -439,30 +408,18 @@
 <hr>
 
 **Fluxo Principal:**
-1. O corretor seleciona o relatório que deseja.
-2. O sistema pede o CPF do corretor para busca no sistema. (FA01)
-3. O sistema verifica o CPF do corretor. (FE01)
-4. O sistema faz a confirmação.
-5. O sistema fornece o relatório.
-6. O sistema informa que o relatório foi emitido com sucesso.
-7. Caso de uso encerrado.
-<hr>
-
-**Fluxos alternativos:**
-
-**-FA01:** O corretor não tem o CPF em mãos.
-
-1. O sistema pede a matrícula do corretor na empresa.
-2. O sistema verifica a matrícula do corretor.
-3. O caso de uso retorna para o passo 4 do fluxo principal.
+1. O corretor seleciona quais relatórios deseja gerar.
+2. O corretor confirma a ação.
+3. O sistema apresenta o relatório com as definições escolhidas pelo usuário.
+4. Caso de uso encerrado.
 <hr>
 
 **Fluxos de exceção:**
 
-**-FE01:** CPF inválido.
+**-FE01:** Nenhum relatório foi escolhido
 
-1. O sistema informa que a matrícula do corretor é inválida.
-2. O caso de uso retorna ao passo 2 do fluxo principal.
+1. O sistema informa que nenhum relatório foie escolhido.
+2. O caso de uso retorna ao passo 1 do fluxo principal.
 <hr>
 
 [Links](#links)  
@@ -650,6 +607,49 @@
 1. O usuário solicita o acesso ao perfil.
 2. O sistema redireciona o usuário para o perfil.
 3. Caso de uso encerrado.
+<hr>
+
+[Links](#links)  
+
+
+
+<br /><br />
+
+
+
+## **UC14 - Registrar venda**
+
+**Lista de atores:** Corretor.
+<hr>
+
+**Visão geral:** O sistema permitirá que o corretor registre suas vendas de imóveis da imobiliária.
+<hr>
+
+**Referências cruzadas:** Requisitos: RF007.
+<hr>
+
+**Pré-Condições:** O corretor deve estar autenticado no sistema e acessar a proposta que deu inicio a negociação da venda.
+<hr>
+
+**Pós-Condições:** Estado do imóvel atualizado como vendido.
+<hr>
+
+**Fluxo Principal:**
+
+1. O corretor solicita o registro da venda.
+2. O sistema pede o valor final da negociação.
+3. O corretor informa o valor. (FE01)
+4. O sistema atualiza o estado do Imóvel.
+5. O sistema confirma a operação.
+6. Caso de uso encerrado.
+<hr>
+
+**Fluxos de exceção:**
+
+**-FE01:** Valor inserido inválido.
+
+1. O sistema notifica o dado inválido.
+2. O caso de uso retorna ao passo 3 do fluxo principal.
 <hr>
 
 [Links](#links)  

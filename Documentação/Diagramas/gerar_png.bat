@@ -1,8 +1,8 @@
 echo off
 set arg1=%~dp0%~1
 set currentFolder=%~dp0
-set astah_commandw="C:\Program Files\astah-professional\astah-commandw.exe"
-set filename=Diagramas_de_Sequencia.asta
+set astah_commandw="C:\Program Files\astah-uml\astah-commandw.exe"
+set filename=Diagramas.asta
 set imagesFolderName=\%filename:~0,-5%
 
 @REM echo "Arquivo: " %arg1%
@@ -20,7 +20,7 @@ goto fim
 :sem
 @REM Sem argumento
 echo Sem argumento
-@REM echo %astah_commandw% -image all -f "%currentFolder%Diagrama_de_Sequencia.asta" -o "%currentFolder%"
+@REM echo %astah_commandw% -image all -f "%currentFolder%Diagramas.asta" -o "%currentFolder%"
 %astah_commandw% -image all -f "%currentFolder%%filename%" -o "%currentFolder%
 
 :fim

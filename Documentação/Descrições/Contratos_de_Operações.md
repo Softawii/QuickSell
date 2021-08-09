@@ -4,7 +4,7 @@
 
 </br>
 
-![](Buscar_Imovel.png)
+![](./../Diagramas/Diagrama_de_Sequencia/Buscar_Imovel.png)
 
 </br>
 
@@ -70,7 +70,7 @@
 
 </br>
 
-![](Fazer_Proposta_por_Imovel.png)
+![](./../Diagramas/Diagrama_de_Sequencia/Fazer_Proposta_por_Imovel.png)
 
 </br>
 
