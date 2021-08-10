@@ -8,17 +8,6 @@ Além disso, nossos funcionários poderão receber essas propostas dos clientes,
 
 </br> </br>
 
-
-# **Histórico de Alterações**
-
-| **Data** | **Versão** | **Descrição** | **Autor** |
-| --- | --- | --- | --- |
-| 18/10/19 | 1.0 | Análise do projeto | Gabriel Perez, Sérgio Rezende, Bruno Almeida, Guilherme Silva, Eduardo Vieira. |
-| 05/11/19 | 2.0 | Ajuste do projeto | Gabriel Perez, Sérgio Rezende, Bruno Almeida, Guilherme Silva, Eduardo Vieira. |
-| 01/07/21 | 3.0 | Aprimoramento do projeto | Isaque Diniz,Sérgio Rezende,Bruno Almeida,Guilherme Silva,Eduardo Vieira,Nicolas Magalhães. |
-
-</br> </br>
-
 # **Links para Documentação**
 - Descrições:
   - [Mini-Mundo](/Documentação/Descrições/Mini-Mundo.md)
