@@ -20,4 +20,4 @@ d) Relação dos proprietários que venderam mais de um imóvel para a imobiliá
 
 <br /><br />
 
-### _[Voltar para a tela inicial do repositório](../)_
+### _[Voltar para a tela inicial do repositório](/QuickSell)_

@@ -658,4 +658,4 @@
 
 <br /><br />
 
-### _[Voltar para a tela inicial do repositório](../)_
+### _[Voltar para a tela inicial do repositório](/QuickSell)_
