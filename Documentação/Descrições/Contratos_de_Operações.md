@@ -134,4 +134,4 @@
 
 <br /><br />
 
-### _[Voltar para a tela inicial](./)_
+### _[Voltar para a tela inicial do repositório](../)_
