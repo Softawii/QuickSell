@@ -658,4 +658,4 @@
 
 <br /><br />
 
-### _[Voltar para a tela inicial do repositório](/QuickSell)_
+### _[Voltar para a tela inicial do repositório](https://github.com/Sergiorezende22/QuickSell)_
