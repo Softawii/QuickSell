@@ -408,6 +408,7 @@
 <hr>
 
 **Fluxo Principal:**
+
 1. O corretor seleciona quais relatórios deseja gerar.
 2. O corretor confirma a ação.
 3. O sistema apresenta o relatório com as definições escolhidas pelo usuário.
@@ -657,4 +658,4 @@
 
 <br /><br />
 
-### _[Voltar para a tela inicial](./)_
+### _[Voltar para a tela inicial do repositório](https://github.com/Sergiorezende22/QuickSell)_
