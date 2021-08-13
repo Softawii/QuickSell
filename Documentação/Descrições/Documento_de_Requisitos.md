@@ -99,4 +99,4 @@ Visto a especificidade da área de atuação do projeto, percebemos que a melhor
 
 <br /><br />
 
-### _[Voltar para a tela inicial do repositório](https://github.com/Sergiorezende22/QuickSell)_
+### _[Voltar para a tela inicial](./)_
