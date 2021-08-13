@@ -16,9 +16,9 @@ Além disso, nossos funcionários poderão receber essas propostas dos clientes,
   - [Contratos de Operações](/Documentação/Descrições/Contratos_de_Operações.md)
 
 - Diagramas:
-  - [Caso de Uso](/Documentação/Diagramas/Caso_de_Uso/Caso_de_Uso.png)
-  - [Classe de Análise](/Documentação/Diagramas/Diagrama_de_Classe/Diagrama_de_Classe.png)
-  - [Classe de Projeto](/Documentação/Diagramas/Diagrama_de_Classe_de_Projeto/Diagrama%20de%20Classe%20de%20Projeto.png)
-  - [Sequência de Sistema](/Documentação/Diagramas/Diagrama_de_Sequencia)
-  - [Sequência de Análise](/Documentação/Diagramas/Diagrama_de_Sequencia_de_Projeto)
+  - [Caso de Uso](/Documentação/Diagramas/Caso_de_Uso/Diagrama_Caso_de_Uso.md)
+  - [Classe de Análise](/Documentação/Diagramas/Diagrama_de_Classe/Diagrama_de_Classe.md)
+  - [Classe de Projeto](/Documentação/Diagramas/Diagrama_de_Classe_de_Projeto/Diagrama_de_Classe_de_Projeto.md)
+  - [Sequência de Sistema](/Documentação/Diagramas/Diagrama_de_Sequencia/Diagrama_de_Sequencia.md)
+  - [Sequência de Análise](/Documentação/Diagramas/Diagrama_de_Sequencia_de_Projeto/Diagrama_de_Sequencia_de_Projeto.md)
 
