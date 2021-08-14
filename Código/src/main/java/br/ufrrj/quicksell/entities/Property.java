@@ -10,6 +10,11 @@ public class Property {
     Adress adress;
     Date registerDate;
 
-    public Property (){
+    public Property(int area, int value, String description, Adress adress, Date registerDate) {
+        this.area = area;
+        this.value = value;
+        this.description = description;
+        this.adress = adress;
+        this.registerDate = registerDate;
     }
 }
