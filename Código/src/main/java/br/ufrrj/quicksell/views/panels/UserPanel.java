@@ -1,4 +1,4 @@
-package br.ufrrj.quicksell.views.panel;
+package br.ufrrj.quicksell.views.panels;
 
 import javax.swing.*;
 
