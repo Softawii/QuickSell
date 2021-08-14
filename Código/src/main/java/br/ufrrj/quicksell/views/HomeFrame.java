@@ -1,6 +1,8 @@
 package br.ufrrj.quicksell.views;
 
 import br.ufrrj.quicksell.entities.Property;
+import br.ufrrj.quicksell.utils.Adress;
+import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,12 +34,8 @@ public class HomeFrame extends JFrame {
     private JButton searchButton;
     private JButton filterButton;
 
-    private JScrollPane centerBody;
+    private JPanel centerBody;
     private ArrayList<JPanel> propertyContainer;
-    private JLabel propertyImage;
-    private JLabel adressLabel;
-    private JLabel priceLabel;
-    private JButton proposalButton;
 
     private JPanel centerFooter;
     private JLabel centerFooterLabel;
@@ -192,19 +190,21 @@ public class HomeFrame extends JFrame {
             center.add(centerHeader, BorderLayout.NORTH);
 
 
-//            centerBody = new JScrollPane();
-//            centerBody.setLayout(new GridBagLayout());
-//            GridBagConstraints gbc2 = new GridBagConstraints();
-//            {
-//                propertyContainer = new ArrayList<JPanel>();
-//                for(int i = 0; i < properties.size(); i++){
-//                    JPanel temp = new JPanel();
-//                    propertyContainer.add(temp);
-//
-//
-//                }
-//            }
-//            center.add(centerBody, BorderLayout.CENTER);
+            centerBody = new JPanel();
+            {
+                PropertyContainerPanel pcp = new PropertyContainerPanel(250000, 250, "Totalmente mobilada e excelente bairro. Realmente uma das cadas ja vistas, mt braba msm",
+                        new Adress("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " "));
+                PropertyContainerPanel pcp2 = new PropertyContainerPanel(250000, 250, "Totalmente mobilada e excelente bairro. Realmente uma das cadas ja vistas, mt braba msm",
+                        new Adress("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " "));
+                PropertyContainerPanel pcp3 = new PropertyContainerPanel(250000, 250, "Totalmente mobilada e excelente bairro. Realmente uma das cadas ja vistas, mt braba msm",
+                        new Adress("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " "));
+
+                centerBody.add(pcp);
+                centerBody.add(pcp2);
+                centerBody.add(pcp3);
+
+            }
+            center.add(centerBody, BorderLayout.CENTER);
 
 
             centerFooter = new JPanel();
