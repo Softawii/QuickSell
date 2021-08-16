@@ -29,14 +29,13 @@ public class HomeFrame extends JFrame {
     private JLabel westFooterLabel;
 
     private JPanel center;
-    private JScrollPane scrollBody;
 
     private JPanel centerHeader;
-    private JTextField searchField;
-    private JButton searchButton;
-    private JButton filterButton;
+
+    private String[] filterStrings;
 
     private JPanel centerBody;
+    private JScrollPane scrollBody;
     private ArrayList<JPanel> propertyContainer;
 
     private JPanel centerFooter;
@@ -54,6 +53,10 @@ public class HomeFrame extends JFrame {
         this.setResizable(true); //Permite que o usu�rio mude o tamanho da janela
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout(0,5));
+        filterStrings = new String[2];
+        filterStrings[0] = "teste";
+        filterStrings[1] = "teste2";
+
 
         createWest();
         createCenter();
@@ -156,38 +159,74 @@ public class HomeFrame extends JFrame {
         {
             centerHeader = new JPanel();
             centerHeader.setLayout(new GridBagLayout());
+            centerHeader.setBorder(BorderFactory.createTitledBorder("Search Filter: "));
             GridBagConstraints gbc = new GridBagConstraints();
             {
-                JLabel spacing1 = new JLabel();
+                JCheckBox districtFilterCheck = new JCheckBox("District");
                 {
-                    gbc.weightx = 2.0;
-                }
-                centerHeader.add(spacing1, gbc);
+                    gbc.weightx = 1;
+                    gbc.gridx = 0;
+                    gbc.anchor = GridBagConstraints.NORTH;
 
-                searchField = new JTextField(50);
+                    JTextField districtSearch = new JTextField(10);
+                    gbc.gridy = 1;
+                    centerHeader.add(districtSearch, gbc);
+                    gbc.gridy = 0;
+                }
+                centerHeader.add(districtFilterCheck, gbc);
+
+                JCheckBox priceFilterCheck = new JCheckBox("Price");
                 {
-                    gbc.fill = GridBagConstraints.VERTICAL;
-                    gbc.weightx = 0.05;
+                    gbc.gridx = 1;
+                    gbc.gridy = 1;
+
+                    JPanel priceFilterContainer = new JPanel();
+                    priceFilterContainer.setLayout(new GridBagLayout());
+                    GridBagConstraints gbcCont = new GridBagConstraints();
+
+                    gbcCont.gridy = 0;
+                    JLabel greaterThanLabel = new JLabel(">=");
+                    priceFilterContainer.add(greaterThanLabel, gbcCont);
+                    JTextField priceSearch_1 = new JTextField(5);
+                    priceFilterContainer.add(priceSearch_1, gbcCont);
+
+                    gbcCont.gridy = 1;
+                    JLabel lessThanLabel = new JLabel("<=");
+                    priceFilterContainer.add(lessThanLabel, gbcCont);
+                    JTextField priceSearch_2 = new JTextField(5);
+                    priceFilterContainer.add(priceSearch_2, gbcCont);
+
+                    centerHeader.add(priceFilterContainer, gbc);
+                    gbc.gridy = 0;
                 }
-                centerHeader.add(searchField, gbc);
+                centerHeader.add(priceFilterCheck, gbc);
 
-                searchButton = new JButton();
-                ImageIcon image = getImageWidth("SearchIcon.png", 18, 17);
-                searchButton.setIcon(image);
-                centerHeader.add(searchButton, gbc);
+                JCheckBox propertyTypeFilterCheck = new JCheckBox("Property Type");
+                {
+                    gbc.gridx = 2;
+                    String[] stringArr = new String[2];
+                    stringArr[0] = "Residential";
+                    stringArr[1] = "Comercial";
+                    JComboBox propertyTypeBox = new JComboBox(stringArr);
+                    gbc.gridy = 1;
+                    centerHeader.add(propertyTypeBox, gbc);
+                    gbc.gridy = 0;
+                }
+                centerHeader.add(propertyTypeFilterCheck, gbc);
 
-
-                filterButton = new JButton("Filter");
-                ImageIcon image2 = getImageWidth("FilterIcon.png", 15, 17);
-                filterButton.setIcon(image2);
+                JButton filterButton = new JButton();
+                filterButton.setBackground(new Color(37, 138,164));
+                filterButton.setLayout(new BorderLayout());
+                JLabel buttonLabel = new JLabel("Filter");
+                buttonLabel.setForeground(Color.white);
+                buttonLabel.setHorizontalAlignment(JLabel.CENTER);
+                buttonLabel.setHorizontalTextPosition(JLabel.CENTER);
+                filterButton.add(buttonLabel);
+                {
+                    gbc.gridx = 3;
+                    gbc.gridy = 1;
+                }
                 centerHeader.add(filterButton, gbc);
-
-                JLabel spacing2 = new JLabel();
-                {
-                    gbc.weightx = 2.0;
-                }
-                centerHeader.add(spacing2, gbc);
-
             }
             center.add(centerHeader, BorderLayout.NORTH);
 

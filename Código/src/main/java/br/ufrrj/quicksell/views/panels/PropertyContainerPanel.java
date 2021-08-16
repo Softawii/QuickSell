@@ -20,7 +20,7 @@ public class PropertyContainerPanel extends JPanel {
     public PropertyContainerPanel(int value, int area, String description, Adress adress) {
         this.setPreferredSize(new Dimension(720, 200));
         Border padding = BorderFactory.createEmptyBorder(15, 15, 15, 15);
-        Border border = BorderFactory.createLineBorder(Color.lightGray, 5, true);
+        Border border = BorderFactory.createLineBorder(new Color(190, 190, 190), 5, true);
         this.setBorder(BorderFactory.createCompoundBorder(border, padding));
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -56,7 +56,7 @@ public class PropertyContainerPanel extends JPanel {
         imovelButton = new JButton();
         imovelButton.setBackground(new Color(37, 138,164));
         imovelButton.setLayout(new BorderLayout());
-        JLabel buttonLabel = new JLabel("Acessar Imovel");
+        JLabel buttonLabel = new JLabel("Access Property");
         buttonLabel.setForeground(Color.white);
         buttonLabel.setHorizontalAlignment(JLabel.CENTER);
         buttonLabel.setHorizontalTextPosition(JLabel.CENTER);
