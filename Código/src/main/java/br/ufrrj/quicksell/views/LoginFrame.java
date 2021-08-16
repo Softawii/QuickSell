@@ -3,6 +3,8 @@ package br.ufrrj.quicksell.views;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+
+import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 import static java.util.Objects.requireNonNull;
 
 public class LoginFrame extends JFrame {
@@ -51,8 +53,6 @@ public class LoginFrame extends JFrame {
             iconImage = new JLabel();
             ImageIcon image = getImageWidth("LoginIcon.png", 100, 100);
             iconImage.setIcon(image);
-            iconImage.setHorizontalAlignment(JLabel.CENTER);
-            iconImage.setLayout(new BorderLayout(0, 100));
             iconImage.setText("QUICKSELL");
             iconImage.setHorizontalTextPosition(JLabel.CENTER);
             iconImage.setVerticalTextPosition(JLabel.BOTTOM);
@@ -180,10 +180,4 @@ public class LoginFrame extends JFrame {
         }
         this.add(footer, BorderLayout.SOUTH);
     }
-
-    public ImageIcon getImageWidth(String path, int width, int height) {
-        ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource(path)));
-        return new ImageIcon(image.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
-    }
-
 }
