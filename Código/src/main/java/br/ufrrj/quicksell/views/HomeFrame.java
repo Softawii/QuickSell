@@ -5,6 +5,7 @@ import br.ufrrj.quicksell.utils.Adress;
 import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class HomeFrame extends JFrame {
     private JLabel westFooterLabel;
 
     private JPanel center;
+    private JScrollPane scrollBody;
 
     private JPanel centerHeader;
     private JTextField searchField;
@@ -189,22 +191,25 @@ public class HomeFrame extends JFrame {
             }
             center.add(centerHeader, BorderLayout.NORTH);
 
-
+            scrollBody = new JScrollPane();
             centerBody = new JPanel();
+            centerBody.setLayout(new GridBagLayout());
+            GridBagConstraints gbc2 = new GridBagConstraints();
+            gbc2.gridy = 0;
+            gbc2.insets = new Insets(10,0, 10, 0);
             {
-                PropertyContainerPanel pcp = new PropertyContainerPanel(250000, 250, "Totalmente mobilada e excelente bairro. Realmente uma das cadas ja vistas, mt braba msm",
-                        new Adress("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " "));
-                PropertyContainerPanel pcp2 = new PropertyContainerPanel(250000, 250, "Totalmente mobilada e excelente bairro. Realmente uma das cadas ja vistas, mt braba msm",
-                        new Adress("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " "));
-                PropertyContainerPanel pcp3 = new PropertyContainerPanel(250000, 250, "Totalmente mobilada e excelente bairro. Realmente uma das cadas ja vistas, mt braba msm",
-                        new Adress("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " "));
-
-                centerBody.add(pcp);
-                centerBody.add(pcp2);
-                centerBody.add(pcp3);
-
+                for(int i = 0; i < 20; i++, gbc2.gridy += 1){
+                    PropertyContainerPanel pcp = new PropertyContainerPanel(250000, 250, "Totalmente mobilada e excelente bairro. Realmente uma das casas ja vistas, mt braba msm",
+                            new Adress("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " "));
+                    centerBody.add(pcp, gbc2);
+                }
             }
-            center.add(centerBody, BorderLayout.CENTER);
+            scrollBody = new JScrollPane(centerBody);
+            scrollBody.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+            scrollBody.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            scrollBody.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+            scrollBody.getVerticalScrollBar().setUnitIncrement(15);
+            center.add(scrollBody, BorderLayout.CENTER);
 
 
             centerFooter = new JPanel();
