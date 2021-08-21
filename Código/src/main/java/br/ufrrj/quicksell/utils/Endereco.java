@@ -22,4 +22,7 @@ public class Endereco {
     public String getStringAdress(){
         return this.street + " street " + "n" + this.number + ", " + this.district + ", " + this.city + "/" + this.state;
     }
+    public String getStringMetadeEndereco(){
+        return this.district + ", " + this.city + "/" + this.state;
+    }
 }

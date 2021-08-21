@@ -1,10 +1,7 @@
 package br.ufrrj.quicksell.views;
 
-import br.ufrrj.quicksell.entities.Property;
 import br.ufrrj.quicksell.controlers.Sistema;
 import br.ufrrj.quicksell.entities.Imovel;
-import br.ufrrj.quicksell.utils.Endereco;
-import br.ufrrj.quicksell.views.panels.FilterPanel;
 import br.ufrrj.quicksell.views.panels.MenuPanel;
 import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
 
@@ -38,12 +35,8 @@ public class HomeFrame extends JFrame {
     private JButton searchButton;
     private JButton filterButton;
 
-    private JScrollPane centerBody;
-    private ArrayList<JPanel> propertyContainer;
-    private JLabel propertyImage;
-    private JLabel adressLabel;
-    private JLabel priceLabel;
-    private JButton proposalButton;
+    private JScrollPane scrollBody;
+    private JPanel centerBody;
 
     private JPanel centerFooter;
     private JLabel centerFooterLabel;
@@ -170,11 +163,6 @@ public class HomeFrame extends JFrame {
                 JLabel spacing1 = new JLabel();
                 {
                     gbc.weightx = 2.0;
-                    GridBagConstraints gbc2 = new GridBagConstraints();
-                    for(int i = 0; i < 20; i++, gbc2.gridy += 1) {
-
-                    }
-                    //centerBody.add(pcp, gbc2);
                 }
                 centerHeader.add(spacing1, gbc);
 
@@ -205,20 +193,26 @@ public class HomeFrame extends JFrame {
             }
             center.add(centerHeader, BorderLayout.NORTH);
 
+            scrollBody = new JScrollPane();
+            centerBody = new JPanel();
+            centerBody.setLayout(new GridBagLayout());
+            GridBagConstraints gbc2 = new GridBagConstraints();
+            gbc2.gridy = 0;
+            gbc2.insets = new Insets(10,0, 10, 0);
+            {
+                for(Imovel imovel : Sistema.getListaDeImoveis()){
+                    PropertyContainerPanel pcp = new PropertyContainerPanel(imovel);
+                    gbc2.gridy += 1;
+                    centerBody.add(pcp, gbc2);
+                }
+            }
+            scrollBody = new JScrollPane(centerBody);
+            scrollBody.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+            scrollBody.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            scrollBody.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+            scrollBody.getVerticalScrollBar().setUnitIncrement(15);
+            center.add(scrollBody, BorderLayout.CENTER);
 
-//            centerBody = new JScrollPane();
-//            centerBody.setLayout(new GridBagLayout());
-//            GridBagConstraints gbc2 = new GridBagConstraints();
-//            {
-//                propertyContainer = new ArrayList<JPanel>();
-//                for(int i = 0; i < properties.size(); i++){
-//                    JPanel temp = new JPanel();
-//                    propertyContainer.add(temp);
-//
-//
-//                }
-//            }
-//            center.add(centerBody, BorderLayout.CENTER);
 
 
             centerFooter = new JPanel();

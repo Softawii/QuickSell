@@ -7,6 +7,8 @@ import br.ufrrj.quicksell.views.panels.MenuPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static java.util.Objects.requireNonNull;
 
@@ -56,4 +58,5 @@ public class PropertyFrame extends JFrame {
         }
         this.add(center, BorderLayout.CENTER);
     }
+
 }

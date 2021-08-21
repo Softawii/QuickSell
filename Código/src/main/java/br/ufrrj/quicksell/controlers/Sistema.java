@@ -4,6 +4,7 @@ package br.ufrrj.quicksell.controlers;
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.entities.Usuario;
 import br.ufrrj.quicksell.views.HomeFrame;
+import br.ufrrj.quicksell.views.PropertyFrame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,12 +55,21 @@ public class Sistema {
         return null;
     }
 
+    public void selecionarImovel(Imovel imovel) {
+        this.imovelAtual = imovel;
+        new PropertyFrame(imovel);
+    }
+
     public Usuario getUsuarioAtual() {
         return usuarioAtual;
     }
 
     public Imovel getImovelAtual() {
         return imovelAtual;
+    }
+
+    public static List<Imovel> getListaDeImoveis() {
+        return listaDeImoveis;
     }
 
     public void addUsuario (Usuario usuario) {

@@ -1,16 +1,20 @@
 package br.ufrrj.quicksell.views.panels;
 
 
+import br.ufrrj.quicksell.controlers.Sistema;
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.utils.Endereco;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 
-public class PropertyContainerPanel extends JPanel {
+public class PropertyContainerPanel extends JPanel implements ActionListener {
+    private Imovel imovel;
 
     private JLabel propertyImage;
     private JLabel priceLabel;
@@ -21,6 +25,7 @@ public class PropertyContainerPanel extends JPanel {
 
 
     public PropertyContainerPanel(Imovel imovel) {
+        this.imovel = imovel;
         this.setPreferredSize(new Dimension(720, 200));
         Border padding = BorderFactory.createEmptyBorder(15, 15, 15, 15);
         Border border = BorderFactory.createLineBorder(new Color(190, 190, 190), 5, true);
@@ -58,6 +63,7 @@ public class PropertyContainerPanel extends JPanel {
         this.add(priceLabel, gbc);
 
         imovelButton = new JButton();
+        imovelButton.addActionListener(this);
         imovelButton.setBackground(new Color(37, 138,164));
         imovelButton.setLayout(new BorderLayout());
         JLabel buttonLabel = new JLabel("Access Property");
@@ -104,11 +110,18 @@ public class PropertyContainerPanel extends JPanel {
         this.add(areaLabel, gbc);
 
 
-        adressLabel = new JLabel("Adress: " + imovel.getEndereco().getStringAdress());
+        adressLabel = new JLabel("Adress: " + imovel.getEndereco().getStringMetadeEndereco());
         adressLabel.setFont(new Font("Arial", Font.BOLD, 15));
         {
             gbc.gridy = 3;
         }
         this.add(adressLabel, gbc);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == imovelButton) {
+            Sistema.pegarInstancia().selecionarImovel(imovel);
+        }
     }
 }

@@ -16,17 +16,17 @@ public class Main {
     public static void main(String[] args) {
         FlatCyanLightIJTheme.setup();
 
-        Endereco endereco = new Endereco("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " ");
+        Endereco endereco = new Endereco("Soares", "26379060", "Vila Sao Joao sdfsdaffsdafsda", "40", "Queimados", "Rio de Janeiro", " ");
         Imovel imovel = new Imovel(250, 250000, "Totalmente mobilada e excelente bairro. Realmente uma das casas ja vistas, mt braba msm",
                 endereco);
 
-        Endereco endereco1 = new Endereco("Irene", "26276370", "Comendador Soares", "000", "Nova Iguaçu", "Rio de Janeiro", " ");
+        Endereco endereco1 = new Endereco("Irene", "26276370", "Comendador", "000", "Nova Iguaçu", "Rio de Janeiro", " ");
         Imovel imovel1 = new Imovel(1, -1, "ALO ALO ALO QUEM LEU MAMOU",
-                endereco);
+                endereco1);
 
         Endereco endereco2 = new Endereco(" De baixo", "666", "inferno", "666", "Sétimo ciclo", "ali", " ");
         Imovel imovel2 = new Imovel(666, 250000, "local seguro e bem climatizado, perfeito para crianças",
-                endereco);
+                endereco2);
 
         Sistema.pegarInstancia().addImovel(imovel);
         Sistema.pegarInstancia().addImovel(imovel1);
