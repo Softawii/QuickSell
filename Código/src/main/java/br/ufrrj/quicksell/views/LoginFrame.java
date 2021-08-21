@@ -1,11 +1,18 @@
 package br.ufrrj.quicksell.views;
 
+import br.ufrrj.quicksell.controlers.Sistema;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+
+import static br.ufrrj.quicksell.utils.Util.getImageWidth;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import static java.util.Objects.requireNonNull;
 
-public class LoginFrame extends JFrame {
+public class LoginFrame extends JFrame implements ActionListener {
     private JPanel header;
     public JLabel iconImage;
     private JLabel loginLabel;
@@ -51,8 +58,6 @@ public class LoginFrame extends JFrame {
             iconImage = new JLabel();
             ImageIcon image = getImageWidth("LoginIcon.png", 100, 100);
             iconImage.setIcon(image);
-            iconImage.setHorizontalAlignment(JLabel.CENTER);
-            iconImage.setLayout(new BorderLayout(0, 100));
             iconImage.setText("QUICKSELL");
             iconImage.setHorizontalTextPosition(JLabel.CENTER);
             iconImage.setVerticalTextPosition(JLabel.BOTTOM);
@@ -91,7 +96,7 @@ public class LoginFrame extends JFrame {
             GridBagConstraints gbc = new GridBagConstraints();
             {
                 // UserLabel Inicio
-                userLabel = new JLabel("Username");
+                userLabel = new JLabel("Email");
                 {
                     gbc.anchor = GridBagConstraints.FIRST_LINE_START;
                 }
@@ -132,6 +137,7 @@ public class LoginFrame extends JFrame {
                 signInButton = new JButton();
                 signInButton.setPreferredSize(new Dimension(0, 35));
                 signInButton.setBackground(new Color(37, 138,164));
+                signInButton.addActionListener(this);
                 signInButton.setLayout(new BorderLayout());
                 {
                     JLabel buttonLabel = new JLabel("Sign in");
@@ -181,9 +187,11 @@ public class LoginFrame extends JFrame {
         this.add(footer, BorderLayout.SOUTH);
     }
 
-    public ImageIcon getImageWidth(String path, int width, int height) {
-        ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource(path)));
-        return new ImageIcon(image.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == signInButton) {
+            if(Sistema.pegarInstancia().fazerLogin(userField.getText(), new String(passwordField.getPassword())))
+                this.dispose();
+        }
     }
-
 }
