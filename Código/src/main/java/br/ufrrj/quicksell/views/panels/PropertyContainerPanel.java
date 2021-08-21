@@ -1,6 +1,8 @@
 package br.ufrrj.quicksell.views.panels;
 
-import br.ufrrj.quicksell.utils.Adress;
+
+import br.ufrrj.quicksell.entities.Imovel;
+import br.ufrrj.quicksell.utils.Endereco;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -17,7 +19,8 @@ public class PropertyContainerPanel extends JPanel {
     private JTextArea descriptionLabel;
     private JButton imovelButton;
 
-    public PropertyContainerPanel(int value, int area, String description, Adress adress) {
+
+    public PropertyContainerPanel(Imovel imovel) {
         this.setPreferredSize(new Dimension(720, 200));
         Border padding = BorderFactory.createEmptyBorder(15, 15, 15, 15);
         Border border = BorderFactory.createLineBorder(new Color(190, 190, 190), 5, true);
@@ -41,7 +44,8 @@ public class PropertyContainerPanel extends JPanel {
         this.add(propertyImage, gbc);
 
 
-        priceLabel = new JLabel("R$" + Integer.toString(value) + ",00");
+
+        priceLabel = new JLabel("R$" + Integer.toString(imovel.getValor()) + ",00");
         priceLabel.setFont(new Font("Arial", Font.BOLD, 25));
         {
             gbc.gridx = 1;
@@ -73,7 +77,8 @@ public class PropertyContainerPanel extends JPanel {
 
 
 
-        descriptionLabel = new JTextArea(description);
+
+        descriptionLabel = new JTextArea(imovel.getDescricao());
         descriptionLabel.setWrapStyleWord(true);
         descriptionLabel.setLineWrap(true);
         descriptionLabel.setEditable(false);
@@ -90,7 +95,7 @@ public class PropertyContainerPanel extends JPanel {
         this.add(descriptionLabel, gbc);
 
 
-        areaLabel = new JLabel("Area: " + Integer.toString(area) + "m\u00B2");
+        areaLabel = new JLabel("Area: " + Integer.toString(imovel.getArea()) + "m\u00B2");
         areaLabel.setFont(new Font("Arial", Font.BOLD, 15));
         {
             gbc.weighty = 0.2;
@@ -98,7 +103,8 @@ public class PropertyContainerPanel extends JPanel {
         }
         this.add(areaLabel, gbc);
 
-        adressLabel = new JLabel("Adress: " + adress.getStringAdress());
+
+        adressLabel = new JLabel("Adress: " + imovel.getEndereco().getStringAdress());
         adressLabel.setFont(new Font("Arial", Font.BOLD, 15));
         {
             gbc.gridy = 3;

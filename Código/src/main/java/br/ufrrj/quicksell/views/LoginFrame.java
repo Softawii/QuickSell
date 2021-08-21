@@ -1,13 +1,18 @@
 package br.ufrrj.quicksell.views;
 
+import br.ufrrj.quicksell.controlers.Sistema;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
 import static br.ufrrj.quicksell.utils.Util.getImageWidth;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import static java.util.Objects.requireNonNull;
 
-public class LoginFrame extends JFrame {
+public class LoginFrame extends JFrame implements ActionListener {
     private JPanel header;
     public JLabel iconImage;
     private JLabel loginLabel;
@@ -91,7 +96,7 @@ public class LoginFrame extends JFrame {
             GridBagConstraints gbc = new GridBagConstraints();
             {
                 // UserLabel Inicio
-                userLabel = new JLabel("Username");
+                userLabel = new JLabel("Email");
                 {
                     gbc.anchor = GridBagConstraints.FIRST_LINE_START;
                 }
@@ -132,6 +137,7 @@ public class LoginFrame extends JFrame {
                 signInButton = new JButton();
                 signInButton.setPreferredSize(new Dimension(0, 35));
                 signInButton.setBackground(new Color(37, 138,164));
+                signInButton.addActionListener(this);
                 signInButton.setLayout(new BorderLayout());
                 {
                     JLabel buttonLabel = new JLabel("Sign in");
@@ -179,5 +185,13 @@ public class LoginFrame extends JFrame {
             footer.add(footerLabel);
         }
         this.add(footer, BorderLayout.SOUTH);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == signInButton) {
+            if(Sistema.pegarInstancia().fazerLogin(userField.getText(), new String(passwordField.getPassword())))
+                this.dispose();
+        }
     }
 }

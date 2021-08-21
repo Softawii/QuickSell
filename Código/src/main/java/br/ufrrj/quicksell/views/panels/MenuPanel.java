@@ -1,5 +1,9 @@
 package br.ufrrj.quicksell.views.panels;
 
+
+import br.ufrrj.quicksell.controlers.Sistema;
+import br.ufrrj.quicksell.entities.Usuario;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,8 +22,10 @@ public class MenuPanel extends JPanel {
     private JPanel footer;
     private JLabel footerLabel;
 
-    public MenuPanel(){
+
+    public MenuPanel(Usuario usuario){
         this.setLayout(new BorderLayout());
+        this.setPreferredSize(new Dimension(160, 1));
         {
             // Header Inicio
             header = new JPanel();
@@ -40,7 +46,7 @@ public class MenuPanel extends JPanel {
                 iconImage.setText("QUICKSELL");
                 iconImage.setHorizontalTextPosition(JLabel.CENTER);
                 iconImage.setVerticalTextPosition(JLabel.BOTTOM);
-                iconImage.setFont(new Font("Cooper Std Black", Font.ITALIC, 24));
+                iconImage.setFont(new Font("Segoe UI", Font.ITALIC, 24));
                 {
                     gbc.anchor = GridBagConstraints.CENTER;
                     gbc.weighty = 0.05;
@@ -50,15 +56,15 @@ public class MenuPanel extends JPanel {
                 // iconImage Final
 
 
-                nameLabel = new JLabel("S\u00E9rgio Rezende");
-                nameLabel.setFont(new Font("Cooper Std Black", Font.BOLD, 15));
+                nameLabel = new JLabel("Ol\u00E1, " + usuario.getPrimeiroNome());
+                nameLabel.setFont(new Font("Segoe UI", Font.BOLD, 15));
                 {
                     gbc.insets = new Insets(0, 10, 5, 10);
                     gbc.gridy = 1;
                 }
                 body.add(nameLabel, gbc);
 
-                profileButton = new JButton("Profile");
+                profileButton = new JButton("Perfil");
                 profileButton.setBackground(new Color(211, 211,211));
                 {
                     gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -66,7 +72,7 @@ public class MenuPanel extends JPanel {
                 }
                 body.add(profileButton, gbc);
 
-                propertyButton = new JButton("Properties");
+                propertyButton = new JButton("Im\u00F3veis");
                 propertyButton.setBackground(new Color(211, 211,211));
                 {
                     gbc.gridy = 3;
@@ -80,7 +86,7 @@ public class MenuPanel extends JPanel {
                 }
                 body.add(spacing, gbc);
 
-                signOutButton = new JButton("Sign Out");
+                signOutButton = new JButton("Sair");
                 signOutButton.setBackground(new Color(211, 211,211));
                 {
                     gbc.gridy = 5;

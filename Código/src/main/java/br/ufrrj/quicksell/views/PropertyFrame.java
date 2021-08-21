@@ -1,6 +1,8 @@
 package br.ufrrj.quicksell.views;
 
-import br.ufrrj.quicksell.entities.Property;
+import br.ufrrj.quicksell.controlers.Sistema;
+
+import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.views.panels.MenuPanel;
 
 import javax.swing.*;
@@ -19,7 +21,7 @@ public class PropertyFrame extends JFrame {
     private JPanel centerBody;
     private JPanel centerFooter;
 
-    public PropertyFrame(Property property) {
+    public PropertyFrame(Imovel imovel) {
         super();
         ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource("LoginIcon.png")));
         this.setIconImage(image.getImage());
@@ -30,7 +32,8 @@ public class PropertyFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout(0,5));
 
-        west = new MenuPanel();
+        west = new MenuPanel(Sistema.pegarInstancia().getUsuarioAtual());
+
         this.add(west, BorderLayout.WEST);
 
         createCenter();
