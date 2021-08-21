@@ -4,6 +4,7 @@ import br.ufrrj.quicksell.controlers.Sistema;
 
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.views.panels.MenuPanel;
+import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,7 @@ import static java.util.Objects.requireNonNull;
 public class PropertyFrame extends JFrame {
     private static final int WIDTH = 1024;
     private static final int HEIGHT = 720;
+    private Imovel imovel;
 
     private JPanel west;
 
@@ -25,6 +27,7 @@ public class PropertyFrame extends JFrame {
 
     public PropertyFrame(Imovel imovel) {
         super();
+        this.imovel = imovel;
         ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource("LoginIcon.png")));
         this.setIconImage(image.getImage());
         this.setTitle("Quicksell"); //Bota t�tulo
@@ -47,10 +50,8 @@ public class PropertyFrame extends JFrame {
         center = new JPanel();
         center.setLayout(new BorderLayout());
         {
-            centerHeader = new JPanel();
-            center.add(centerHeader, BorderLayout.NORTH);
-
             centerBody = new JPanel();
+                
             center.add(centerBody, BorderLayout.CENTER);
 
             centerFooter = new JPanel();

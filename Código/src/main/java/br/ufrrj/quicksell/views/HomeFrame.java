@@ -2,6 +2,7 @@ package br.ufrrj.quicksell.views;
 
 import br.ufrrj.quicksell.controlers.Sistema;
 import br.ufrrj.quicksell.entities.Imovel;
+import br.ufrrj.quicksell.views.panels.FilterPanel;
 import br.ufrrj.quicksell.views.panels.MenuPanel;
 import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
 
@@ -156,41 +157,7 @@ public class HomeFrame extends JFrame {
         center = new JPanel();
         center.setLayout(new BorderLayout());
         {
-            centerHeader = new JPanel();
-            centerHeader.setLayout(new GridBagLayout());
-            GridBagConstraints gbc = new GridBagConstraints();
-            {
-                JLabel spacing1 = new JLabel();
-                {
-                    gbc.weightx = 2.0;
-                }
-                centerHeader.add(spacing1, gbc);
-
-                searchField = new JTextField(50);
-                {
-                    gbc.fill = GridBagConstraints.VERTICAL;
-                    gbc.weightx = 0.05;
-                }
-                centerHeader.add(searchField, gbc);
-
-                searchButton = new JButton();
-                ImageIcon image = getImageWidth("SearchIcon.png", 18, 17);
-                searchButton.setIcon(image);
-                centerHeader.add(searchButton, gbc);
-
-
-                filterButton = new JButton("Filter");
-                ImageIcon image2 = getImageWidth("FilterIcon.png", 15, 17);
-                filterButton.setIcon(image2);
-                centerHeader.add(filterButton, gbc);
-
-                JLabel spacing2 = new JLabel();
-                {
-                    gbc.weightx = 2.0;
-                }
-                centerHeader.add(spacing2, gbc);
-
-            }
+            centerHeader = new FilterPanel();
             center.add(centerHeader, BorderLayout.NORTH);
 
             scrollBody = new JScrollPane();
@@ -201,7 +168,7 @@ public class HomeFrame extends JFrame {
             gbc2.insets = new Insets(10,0, 10, 0);
             {
                 for(Imovel imovel : Sistema.getListaDeImoveis()){
-                    PropertyContainerPanel pcp = new PropertyContainerPanel(imovel);
+                    PropertyContainerPanel pcp = new PropertyContainerPanel(this, imovel);
                     gbc2.gridy += 1;
                     centerBody.add(pcp, gbc2);
                 }

@@ -4,6 +4,7 @@ package br.ufrrj.quicksell.views.panels;
 import br.ufrrj.quicksell.controlers.Sistema;
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.utils.Endereco;
+import br.ufrrj.quicksell.views.HomeFrame;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,6 +16,7 @@ import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 
 public class PropertyContainerPanel extends JPanel implements ActionListener {
     private Imovel imovel;
+    private JFrame frame;
 
     private JLabel propertyImage;
     private JLabel priceLabel;
@@ -24,8 +26,9 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
     private JButton imovelButton;
 
 
-    public PropertyContainerPanel(Imovel imovel) {
+    public PropertyContainerPanel(JFrame frame, Imovel imovel) {
         this.imovel = imovel;
+        this.frame = frame;
         this.setPreferredSize(new Dimension(720, 200));
         Border padding = BorderFactory.createEmptyBorder(15, 15, 15, 15);
         Border border = BorderFactory.createLineBorder(new Color(190, 190, 190), 5, true);
@@ -47,8 +50,6 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
             gbc.weightx = 2;
         }
         this.add(propertyImage, gbc);
-
-
 
         priceLabel = new JLabel("R$" + Integer.toString(imovel.getValor()) + ",00");
         priceLabel.setFont(new Font("Arial", Font.BOLD, 25));
@@ -79,9 +80,6 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
             gbc.fill = GridBagConstraints.HORIZONTAL;
         }
         this.add(imovelButton, gbc);
-
-
-
 
 
         descriptionLabel = new JTextArea(imovel.getDescricao());
@@ -122,6 +120,7 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == imovelButton) {
             Sistema.pegarInstancia().selecionarImovel(imovel);
+            frame.dispose();
         }
     }
 }
