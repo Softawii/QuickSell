@@ -2,10 +2,8 @@ package br.ufrrj.quicksell.views.panels;
 
 
 import br.ufrrj.quicksell.controlers.Sistema;
-import br.ufrrj.quicksell.entities.Usuario;
 import br.ufrrj.quicksell.views.HomeFrame;
 import br.ufrrj.quicksell.views.LoginFrame;
-import br.ufrrj.quicksell.views.UserPropertiesFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +13,9 @@ import java.awt.event.ActionListener;
 import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 
 public class MenuPanel extends JPanel implements ActionListener {
+    private HomeFrame frame;
+
     private JPanel header;
-    private JFrame frame;
 
     private JPanel body;
     private JLabel iconImage;
@@ -30,7 +29,7 @@ public class MenuPanel extends JPanel implements ActionListener {
     private JLabel footerLabel;
 
 
-    public MenuPanel(JFrame frame, Usuario usuario){
+    public MenuPanel(HomeFrame frame){
         this.frame = frame;
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(160, 1));
@@ -64,7 +63,7 @@ public class MenuPanel extends JPanel implements ActionListener {
                 // iconImage Final
 
 
-                nameLabel = new JLabel("Ol\u00E1, " + usuario.getPrimeiroNome());
+                nameLabel = new JLabel("Ol\u00E1, " + Sistema.pegarInstancia().getUsuarioAtual().getPrimeiroNome());
                 nameLabel.setFont(new Font("Segoe UI", Font.BOLD, 15));
                 {
                     gbc.insets = new Insets(0, 10, 5, 10);
@@ -131,13 +130,11 @@ public class MenuPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == propertyButton){
-            new UserPropertiesFrame();
-            frame.dispose();
+            frame.setCenter(new UserPropertiesCenterPanel(frame));
         }
 
         if(e.getSource() == homeButton) {
-            new HomeFrame();
-            frame.dispose();
+            frame.setCenter(new HomeCenterPanel(frame));
         }
 
         if(e.getSource() == signOutButton) {

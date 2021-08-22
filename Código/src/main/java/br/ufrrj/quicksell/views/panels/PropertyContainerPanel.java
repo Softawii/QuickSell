@@ -3,7 +3,6 @@ package br.ufrrj.quicksell.views.panels;
 
 import br.ufrrj.quicksell.controlers.Sistema;
 import br.ufrrj.quicksell.entities.Imovel;
-import br.ufrrj.quicksell.utils.Endereco;
 import br.ufrrj.quicksell.views.HomeFrame;
 
 import javax.swing.*;
@@ -16,7 +15,7 @@ import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 
 public class PropertyContainerPanel extends JPanel implements ActionListener {
     private Imovel imovel;
-    private JFrame frame;
+    private HomeFrame frame;
 
     private JLabel propertyImage;
     private JLabel priceLabel;
@@ -26,7 +25,7 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
     private JButton imovelButton;
 
 
-    public PropertyContainerPanel(JFrame frame, Imovel imovel) {
+    public PropertyContainerPanel(HomeFrame frame, Imovel imovel) {
         this.imovel = imovel;
         this.frame = frame;
         this.setPreferredSize(new Dimension(720, 200));
@@ -120,7 +119,7 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == imovelButton) {
             Sistema.pegarInstancia().selecionarImovel(imovel);
-            frame.dispose();
+            frame.setCenter(new PropertyCenterPanel(frame));
         }
     }
 }

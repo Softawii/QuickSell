@@ -6,7 +6,6 @@ import br.ufrrj.quicksell.entities.Imobiliaria;
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.entities.Usuario;
 import br.ufrrj.quicksell.views.HomeFrame;
-import br.ufrrj.quicksell.views.PropertyFrame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +60,6 @@ public class Sistema {
 
     public void selecionarImovel(Imovel imovel) {
         this.imovelAtual = imovel;
-        new PropertyFrame(imovel);
     }
 
     public void deslogar() {
