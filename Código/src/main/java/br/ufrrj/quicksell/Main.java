@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         FlatCyanLightIJTheme.setup();
 
-        Endereco endereco = new Endereco("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " ");
+        Endereco endereco = new Endereco("Soares", "26379060", "Vila S\u00E3o Jo\u00E3o", "40", "Queimados", "Rio de Janeiro", " ");
         Endereco endereco1 = new Endereco("Irene", "26276370", "Comendador Soares", "000", "Nova Igua\u00E7u", "Rio de Janeiro", " ");
         Endereco endereco2 = new Endereco(" De baixo", "666", "inferno", "666", "S\u00E9timo ciclo", "ali", " ");
 
@@ -39,7 +39,7 @@ public class Main {
         Imovel imovelNicolas = new Imovel(1, -1, "ALO ALO ALO QUEM LEU MAMOU",
                 endereco1, nicolas);
 
-        Imovel imovelImo2 = new Imovel(666, 250000, "local seguro e bem climatizado, perfeito para crianças",
+        Imovel imovelImo2 = new Imovel(666, 250000, "local seguro e bem climatizado, perfeito para crian\u00E7as",
                 endereco2, imobiliaria);
 
 

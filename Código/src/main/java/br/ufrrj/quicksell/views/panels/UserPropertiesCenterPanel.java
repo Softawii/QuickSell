@@ -13,8 +13,6 @@ import java.awt.*;
 import static java.util.Objects.requireNonNull;
 
 public class UserPropertiesCenterPanel extends JPanel {
-    private static final int WIDTH = 1024;
-    private static final int HEIGHT = 720;
     private HomeFrame frame;
 
     private JPanel centerBody;

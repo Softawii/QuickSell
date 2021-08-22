@@ -1,10 +1,8 @@
 package br.ufrrj.quicksell.controlers;
 
 
-import br.ufrrj.quicksell.entities.Corretor;
-import br.ufrrj.quicksell.entities.Imobiliaria;
-import br.ufrrj.quicksell.entities.Imovel;
-import br.ufrrj.quicksell.entities.Usuario;
+import br.ufrrj.quicksell.entities.*;
+import br.ufrrj.quicksell.utils.Data;
 import br.ufrrj.quicksell.views.HomeFrame;
 
 import java.util.ArrayList;
@@ -19,6 +17,8 @@ public class Sistema {
     private Imovel imovelAtual;
 
     private static Imobiliaria imobiliaria;
+
+    private Data data;
 
     private Sistema() { }
 
@@ -77,6 +77,11 @@ public class Sistema {
             }
 
         return imoveisFiltrados;
+    }
+
+    public void fazerProposta(float valor, String descricao) {
+        Proposta proposta = usuarioAtual.criarProposta(imovelAtual, valor, descricao, data);
+        imovelAtual.addProposta(proposta);
     }
 
     public static Imobiliaria getImobiliaria() {

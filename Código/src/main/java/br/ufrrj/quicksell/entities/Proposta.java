@@ -3,10 +3,29 @@ package br.ufrrj.quicksell.entities;
 import br.ufrrj.quicksell.utils.Data;
 
 public class Proposta {
-    private int valorInicial;
+    private float valorInicial;
     private String descricao;
     private Data data;
-    private Usuario aceitante;
     private Usuario proponente;
     private Imovel imovel;
+
+    public Proposta(float valorInicial, String descricao, Data data, Usuario proponente, Imovel imovel) {
+        this.valorInicial = valorInicial;
+        this.descricao = descricao;
+        this.data = data;
+        this.proponente = proponente;
+        this.imovel = imovel;
+    }
+
+    @Override
+    public String toString() {
+        return "Proposta{" +
+                "valorInicial=" + valorInicial +
+                ", descricao='" + descricao + '\'' +
+                ", data=" + data +
+                ", proponente=" + proponente +
+                ", imovel=" + imovel +
+                '}';
+    }
 }
+

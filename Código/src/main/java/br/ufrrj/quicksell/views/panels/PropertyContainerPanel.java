@@ -50,7 +50,7 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
         }
         this.add(propertyImage, gbc);
 
-        priceLabel = new JLabel("R$" + Integer.toString(imovel.getValor()) + ",00");
+        priceLabel = new JLabel(String.format("R$%.2f", imovel.getValor()));
         priceLabel.setFont(new Font("Arial", Font.BOLD, 25));
         {
             gbc.gridx = 1;

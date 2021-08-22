@@ -3,7 +3,9 @@ package br.ufrrj.quicksell.views.panels;
 import br.ufrrj.quicksell.controlers.Sistema;
 
 import br.ufrrj.quicksell.entities.Imovel;
+import br.ufrrj.quicksell.entities.Proposta;
 import br.ufrrj.quicksell.views.HomeFrame;
+import br.ufrrj.quicksell.views.ProposeFrame;
 import br.ufrrj.quicksell.views.panels.MenuPanel;
 import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
 
@@ -16,15 +18,10 @@ import java.awt.event.ActionListener;
 import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 import static java.util.Objects.requireNonNull;
 
-public class PropertyCenterPanel extends JPanel {
-    private static final int WIDTH = 1024;
-    private static final int HEIGHT = 720;
+public class PropertyCenterPanel extends JPanel implements ActionListener {
     private Imovel imovel;
-
-    private JPanel west;
-
-
-    private JPanel center;
+    private JFrame proposeFrame;
+    private HomeFrame frame;
 
     private JPanel centerHeader;
     private JLabel titleLabel;
@@ -52,6 +49,7 @@ public class PropertyCenterPanel extends JPanel {
     public PropertyCenterPanel(HomeFrame frame) {
         super();
         this.imovel = Sistema.pegarInstancia().getImovelAtual();
+        this.frame = frame;
 
         createCenter();
     }
@@ -89,7 +87,7 @@ public class PropertyCenterPanel extends JPanel {
             }
             centerBody.add(propertyImage, gbc);
 
-            priceLabel = new JLabel("Pre\u00E7o Base: R$" + Integer.toString(imovel.getValor()) + ",00");
+            priceLabel = new JLabel(String.format("Pre\u00E7o Base: R$%.2f", imovel.getValor()));
             priceLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
             {
                 gbc.gridheight = 1;
@@ -243,6 +241,7 @@ public class PropertyCenterPanel extends JPanel {
                 accessProposeButton = new JButton();
                 accessProposeButton.setBackground(new Color(37, 138,164));
                 accessProposeButton.setLayout(new BorderLayout());
+                accessProposeButton.addActionListener(this);
                 JLabel accessProposeButtonLabel = new JLabel("Ver Propostas");
                 accessProposeButtonLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
                 accessProposeButtonLabel.setForeground(Color.white);
@@ -258,7 +257,7 @@ public class PropertyCenterPanel extends JPanel {
             else {
                 createProposeButton = new JButton();
                 createProposeButton.setBackground(new Color(37, 138,164));
-                createProposeButton.setLayout(new BorderLayout());
+                createProposeButton.addActionListener(this);
                 JLabel createProposeButtonLabel = new JLabel("Fazer Proposta");
                 createProposeButtonLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
                 createProposeButtonLabel.setForeground(Color.white);
@@ -286,4 +285,17 @@ public class PropertyCenterPanel extends JPanel {
 
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == createProposeButton){
+            if(proposeFrame != null)
+                proposeFrame.dispose();
+            proposeFrame = new ProposeFrame();
+        }
+
+        if(e.getSource() == accessProposeButton) {
+            for (Proposta proposta : imovel.getListaDePropostas())
+                System.out.println(proposta.toString());
+        }
+    }
 }

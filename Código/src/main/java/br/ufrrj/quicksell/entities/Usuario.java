@@ -14,7 +14,6 @@ public class Usuario extends Proprietario {
     private String email;
     private String senha;
     private List<Proposta> propostasRealizadas;
-    private List<Proposta> propostasRecebidas;
 
     public Usuario (String nome, Endereco endereco, String email, String senha) {
         this.email = email;
@@ -22,7 +21,6 @@ public class Usuario extends Proprietario {
         this.nome = nome;
         this.imoveis = new ArrayList<Imovel>();
         this.propostasRealizadas = new ArrayList<Proposta>();
-        this.propostasRecebidas = new ArrayList<Proposta>();
     }
 
     public Usuario (String nome, Endereco endereco, String email, String senha, List<Imovel> imoveis) {
@@ -31,10 +29,13 @@ public class Usuario extends Proprietario {
         this.nome = nome;
         this.imoveis = imoveis;
         this.propostasRealizadas = new ArrayList<Proposta>();
-        this.propostasRecebidas = new ArrayList<Proposta>();
     }
 
-    public void criarProposta(Imovel imovelAtual, int valor, String descricao, Data data){}
+    public Proposta criarProposta(Imovel imovelAtual, float valor, String descricao, Data data){
+        Proposta proposta = new Proposta(valor, descricao, data, this, imovelAtual);
+        propostasRealizadas.add(proposta);
+        return proposta;
+    }
 
     public void registrarImovel(Imovel imovel){}
 

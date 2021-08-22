@@ -6,11 +6,12 @@ import br.ufrrj.quicksell.utils.EstadoDoImovel;
 import br.ufrrj.quicksell.utils.TipoDeImovel;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Imovel {
     int area;
-    int valor;
+    float valor;
     String descricao;
     Endereco endereco;
     Data dataDeRegistro;
@@ -26,13 +27,18 @@ public class Imovel {
         this.descricao = descricao;
         this.endereco = endereco;
         this.proprietario = proprietario;
+        listaDePropostas = new ArrayList<Proposta>();
+    }
+
+    public void addProposta(Proposta proposta) {
+        listaDePropostas.add(proposta);
     }
 
     public int getArea() {
         return area;
     }
 
-    public int getValor() {
+    public float getValor() {
         return valor;
     }
 
@@ -46,5 +52,9 @@ public class Imovel {
 
     public Proprietario getProprietario() {
         return proprietario;
+    }
+
+    public List<Proposta> getListaDePropostas() {
+        return listaDePropostas;
     }
 }
