@@ -3,6 +3,7 @@ package br.ufrrj.quicksell.entities;
 import br.ufrrj.quicksell.utils.Data;
 import br.ufrrj.quicksell.utils.Endereco;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario extends Proprietario {
@@ -12,13 +13,25 @@ public class Usuario extends Proprietario {
     private String telefone;
     private String email;
     private String senha;
-    private List<Proposta> propostasRealizdas;
-    private List<Proposta> propostasRecebedas;
+    private List<Proposta> propostasRealizadas;
+    private List<Proposta> propostasRecebidas;
 
-    public Usuario (String email, String senha) {
+    public Usuario (String nome, Endereco endereco, String email, String senha) {
         this.email = email;
         this.senha = senha;
-        this.nome = "Sergio Felipe Rezende Do Nascimento";
+        this.nome = nome;
+        this.imoveis = new ArrayList<Imovel>();
+        this.propostasRealizadas = new ArrayList<Proposta>();
+        this.propostasRecebidas = new ArrayList<Proposta>();
+    }
+
+    public Usuario (String nome, Endereco endereco, String email, String senha, List<Imovel> imoveis) {
+        this.email = email;
+        this.senha = senha;
+        this.nome = nome;
+        this.imoveis = imoveis;
+        this.propostasRealizadas = new ArrayList<Proposta>();
+        this.propostasRecebidas = new ArrayList<Proposta>();
     }
 
     public void criarProposta(Imovel imovelAtual, int valor, String descricao, Data data){}

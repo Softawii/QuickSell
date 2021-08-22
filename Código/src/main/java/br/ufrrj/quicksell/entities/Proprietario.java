@@ -4,7 +4,11 @@ import java.util.List;
 
 public class Proprietario {
 
-   private List<Imovel> imoveis;
+    protected List<Imovel> imoveis;
     public Usuario pegarResponsavel(Imovel imovelAtual){ return null; }
     public List<Proposta> pegarPropostas(){ return  null; }
+
+    public List<Imovel> getImoveis() {
+        return imoveis;
+    }
 }

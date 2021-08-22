@@ -37,7 +37,7 @@ public class PropertyFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout(0,5));
 
-        west = new MenuPanel(Sistema.pegarInstancia().getUsuarioAtual());
+        west = new MenuPanel(this, Sistema.pegarInstancia().getUsuarioAtual());
 
         this.add(west, BorderLayout.WEST);
 

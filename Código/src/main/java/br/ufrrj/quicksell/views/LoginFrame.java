@@ -13,6 +13,9 @@ import java.awt.event.ActionListener;
 import static java.util.Objects.requireNonNull;
 
 public class LoginFrame extends JFrame implements ActionListener {
+    private static final int WIDTH = 400;
+    private static final int HEIGHT = 500;
+
     private JPanel header;
     public JLabel iconImage;
     private JLabel loginLabel;
@@ -31,12 +34,12 @@ public class LoginFrame extends JFrame implements ActionListener {
 
     private JPanel container;
 
-    public LoginFrame(int width, int height) {
+    public LoginFrame() {
         super();
         ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource("LoginIcon.png")));
         this.setIconImage(image.getImage());
         this.setTitle("Quicksell"); //Bota t�tulo
-        this.setSize(width, height); //Muda o tamanho
+        this.setSize(WIDTH, HEIGHT); //Muda o tamanho
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Fechar a aplica��o ao clicar no X
         this.setResizable(false); //Permite que o usu�rio mude o tamanho da janela
         this.setLocationRelativeTo(null);

@@ -1,7 +1,9 @@
 package br.ufrrj.quicksell.views;
 
 import br.ufrrj.quicksell.controlers.Sistema;
+import br.ufrrj.quicksell.entities.Corretor;
 import br.ufrrj.quicksell.entities.Imovel;
+import br.ufrrj.quicksell.entities.Usuario;
 import br.ufrrj.quicksell.views.panels.FilterPanel;
 import br.ufrrj.quicksell.views.panels.MenuPanel;
 import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
@@ -14,7 +16,8 @@ import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 import static java.util.Objects.requireNonNull;
 
 public class HomeFrame extends JFrame {
-
+    private static final int WIDTH = 1024;
+    private static final int HEIGHT = 720;
     private JPanel west;
 
     private JPanel westHeader;
@@ -44,12 +47,12 @@ public class HomeFrame extends JFrame {
 
     public ArrayList<Imovel> imoveis;
 
-    public HomeFrame(int width, int height) {
+    public HomeFrame() {
         super();
         ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource("LoginIcon.png")));
         this.setIconImage(image.getImage());
         this.setTitle("Quicksell"); //Bota t�tulo
-        this.setSize(width, height); //Muda o tamanho
+        this.setSize(WIDTH, HEIGHT); //Muda o tamanho
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Fechar a aplica��o ao clicar no X
         this.setResizable(true); //Permite que o usu�rio mude o tamanho da janela
         this.setLocationRelativeTo(null);
@@ -57,7 +60,7 @@ public class HomeFrame extends JFrame {
 
         createWest();
 
-        west = new MenuPanel(Sistema.pegarInstancia().getUsuarioAtual());
+        west = new MenuPanel(this, Sistema.pegarInstancia().getUsuarioAtual());
         this.add(west, BorderLayout.WEST);
         createCenter();
 
@@ -167,7 +170,7 @@ public class HomeFrame extends JFrame {
             gbc2.gridy = 0;
             gbc2.insets = new Insets(10,0, 10, 0);
             {
-                for(Imovel imovel : Sistema.getListaDeImoveis()){
+                for(Imovel imovel : Sistema.pegarInstancia().pegarListaFiltradaParaUsuario()){
                     PropertyContainerPanel pcp = new PropertyContainerPanel(this, imovel);
                     gbc2.gridy += 1;
                     centerBody.add(pcp, gbc2);

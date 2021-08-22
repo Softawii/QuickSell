@@ -1,6 +1,8 @@
 package br.ufrrj.quicksell.controlers;
 
 
+import br.ufrrj.quicksell.entities.Corretor;
+import br.ufrrj.quicksell.entities.Imobiliaria;
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.entities.Usuario;
 import br.ufrrj.quicksell.views.HomeFrame;
@@ -16,6 +18,8 @@ public class Sistema {
 
     private static List<Imovel> listaDeImoveis;
     private Imovel imovelAtual;
+
+    private static Imobiliaria imobiliaria;
 
     private Sistema() { }
 
@@ -37,7 +41,7 @@ public class Sistema {
         {
             if(usuario.getSenha().equals(senha)) {
                 usuarioAtual = usuario;
-                new HomeFrame(1024, 720);
+                new HomeFrame();
                 return true;
             }
             else
@@ -60,6 +64,31 @@ public class Sistema {
         new PropertyFrame(imovel);
     }
 
+    public void deslogar() {
+        usuarioAtual = null;
+    }
+
+    public List<Imovel> pegarListaFiltradaParaUsuario() {
+        if(usuarioAtual instanceof Corretor)
+            return listaDeImoveis;
+
+        List<Imovel> imoveisFiltrados = new ArrayList<Imovel>();
+        for(Imovel imovel : listaDeImoveis)
+            if(imovel.getProprietario() instanceof Imobiliaria) {
+                imoveisFiltrados.add(imovel);
+            }
+
+        return imoveisFiltrados;
+    }
+
+    public static Imobiliaria getImobiliaria() {
+        return imobiliaria;
+    }
+
+    public static void setImobiliaria(Imobiliaria imobiliaria) {
+        Sistema.imobiliaria = imobiliaria;
+    }
+
     public Usuario getUsuarioAtual() {
         return usuarioAtual;
     }
@@ -68,15 +97,13 @@ public class Sistema {
         return imovelAtual;
     }
 
-    public static List<Imovel> getListaDeImoveis() {
-        return listaDeImoveis;
-    }
-
     public void addUsuario (Usuario usuario) {
         listaDeUsuarios.add(usuario);
     }
+
     public void addImovel (Imovel imovel) {
         listaDeImoveis.add(imovel);
     }
 
 }
+

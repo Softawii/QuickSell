@@ -20,11 +20,12 @@ public class Imovel {
     TipoDeImovel tipoDeImovel;
     EstadoDoImovel estadoDoImovel;
 
-    public Imovel(int valor, int area, String descricao, Endereco endereco) {
+    public Imovel(int valor, int area, String descricao, Endereco endereco, Proprietario proprietario) {
         this.valor = valor;
         this.area = area;
         this.descricao = descricao;
         this.endereco = endereco;
+        this.proprietario = proprietario;
     }
 
     public int getArea() {
@@ -41,5 +42,9 @@ public class Imovel {
 
     public Endereco getEndereco() {
         return endereco;
+    }
+
+    public Proprietario getProprietario() {
+        return proprietario;
     }
 }
