@@ -58,11 +58,19 @@ public class Main {
         Sistema.pegarInstancia().addUsuario(nicolas);
         Sistema.pegarInstancia().addUsuario(corretor);
 
-        Sistema.pegarInstancia().fazerLogin("sergio@gmail.com", "123");
+        Sistema.pegarInstancia().fazerLogin("nicolas@gmail.com", "321");
+
+        /*
+        Sistema.pegarInstancia().selecionarImovel(imovelNicolas);
+        Sistema.pegarInstancia().fazerProposta(150, "UMA DAS PROPOSTAS JA FEITAS");
+        Sistema.pegarInstancia().fazerProposta(150, "UMA DAS PROPOSTAS JA FEITAS");
+        Sistema.pegarInstancia().fazerProposta(150, "UMA DAS PROPOSTAS JA FEITAS");
+
+
 
         //new LoginFrame();
 
-        /*
+
         Endereco endereco = new Endereco("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " ");
         Imovel imovel = new Imovel(250, 250000, "Totalmente mobilada e excelente bairro. Realmente uma das casas ja vistas, mt braba msm",
                 endereco, new Data(20,02,2001));

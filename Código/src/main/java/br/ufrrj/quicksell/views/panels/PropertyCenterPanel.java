@@ -294,8 +294,10 @@ public class PropertyCenterPanel extends JPanel implements ActionListener {
         }
 
         if(e.getSource() == accessProposeButton) {
+            frame.setCenter(new PropertieProposesCenterPanel(frame));
             for (Proposta proposta : imovel.getListaDePropostas())
                 System.out.println(proposta.toString());
         }
+
     }
 }

@@ -17,6 +17,18 @@ public class Proposta {
         this.imovel = imovel;
     }
 
+    public Usuario getProponente() {
+        return proponente;
+    }
+
+    public float getValorInicial() {
+        return valorInicial;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
     @Override
     public String toString() {
         return "Proposta{" +
