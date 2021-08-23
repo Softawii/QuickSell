@@ -67,7 +67,7 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
         imovelButton.addActionListener(this);
         imovelButton.setBackground(new Color(37, 138,164));
         imovelButton.setLayout(new BorderLayout());
-        JLabel buttonLabel = new JLabel("Access Property");
+        JLabel buttonLabel = new JLabel("Acessar Propriedade");
         buttonLabel.setForeground(Color.white);
         buttonLabel.setHorizontalAlignment(JLabel.CENTER);
         buttonLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -99,7 +99,7 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
         this.add(descriptionLabel, gbc);
 
 
-        areaLabel = new JLabel("Area: " + Integer.toString(imovel.getArea()) + "m\u00B2");
+        areaLabel = new JLabel("\u00C1rea: " + Integer.toString(imovel.getArea()) + "m\u00B2");
         areaLabel.setFont(new Font("Arial", Font.BOLD, 15));
         {
             gbc.weighty = 0.2;
@@ -108,7 +108,7 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
         this.add(areaLabel, gbc);
 
 
-        adressLabel = new JLabel("Adress: " + imovel.getEndereco().getStringMetadeEndereco());
+        adressLabel = new JLabel("Endere\u00E7o: " + imovel.getEndereco().getStringMetadeEndereco());
         adressLabel.setFont(new Font("Arial", Font.BOLD, 15));
         {
             gbc.gridy = 3;

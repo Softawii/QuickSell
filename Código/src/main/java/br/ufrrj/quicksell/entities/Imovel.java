@@ -57,4 +57,8 @@ public class Imovel {
     public List<Proposta> getListaDePropostas() {
         return listaDePropostas;
     }
+
+    public String getTipoDeImovelString() {
+        return tipoDeImovel == TipoDeImovel.COMERCIAL ? "Comercial" : "Residencial";
+    }
 }

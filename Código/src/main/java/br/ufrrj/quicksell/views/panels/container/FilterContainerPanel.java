@@ -1,10 +1,21 @@
 package br.ufrrj.quicksell.views.panels.container;
 
+import br.ufrrj.quicksell.controlers.Sistema;
+import br.ufrrj.quicksell.views.HomeFrame;
+import br.ufrrj.quicksell.views.panels.center.HomeCenterPanel;
+import br.ufrrj.quicksell.views.panels.center.UserPropertiesCenterPanel;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-public class FilterContainerPanel extends JPanel {
+public class FilterContainerPanel extends JPanel implements ItemListener, ActionListener {
+    private HomeFrame frame;
+
     private JPanel districtFilterContainer;
     private JCheckBox districtFilterCheck;
     private JTextField districtSearch;
@@ -22,10 +33,11 @@ public class FilterContainerPanel extends JPanel {
 
     private JButton filterButton;
 
-    public FilterContainerPanel() {
+    public FilterContainerPanel(HomeFrame frame) {
+        this.frame = frame;
         this.setLayout(new GridBagLayout());
         Border padding = BorderFactory.createEmptyBorder(5, 40, 0, 50);
-        Border border = BorderFactory.createTitledBorder("Search Filter");
+        Border border = BorderFactory.createTitledBorder("Filtro de Busca");
         this.setBorder(BorderFactory.createCompoundBorder(padding, border));
         GridBagConstraints gbc = new GridBagConstraints();
         {
@@ -33,13 +45,15 @@ public class FilterContainerPanel extends JPanel {
             districtFilterContainer.setLayout(new GridBagLayout());
             GridBagConstraints gbcCont = new GridBagConstraints();
             {
-                districtFilterCheck = new JCheckBox("District:");
+                districtFilterCheck = new JCheckBox("Bairro:");
+                districtFilterCheck.addItemListener(this);
                 {
                     gbcCont.gridx = 0;
                 }
                 districtFilterContainer.add(districtFilterCheck, gbcCont);
 
                 districtSearch = new JTextField(10);
+                districtSearch.setEnabled(false);
                 {
                     gbcCont.gridx = 1;
                 }
@@ -55,7 +69,8 @@ public class FilterContainerPanel extends JPanel {
             priceFilterContainer.setLayout(new GridBagLayout());
             gbcCont = new GridBagConstraints();
             {
-                priceFilterCheck = new JCheckBox("Price: ");
+                priceFilterCheck = new JCheckBox("Pre\u00E7o: ");
+                priceFilterCheck.addItemListener(this);
                 {
                     gbcCont.gridheight = 2;
                     gbcCont.gridx = 0;
@@ -72,6 +87,7 @@ public class FilterContainerPanel extends JPanel {
                 priceFilterContainer.add(greaterThanLabel, gbcCont);
 
                 priceSearch_1 = new JTextField(5);
+                priceSearch_1.setEnabled(false);
                 {
                     gbcCont.gridx = 2;
                 }
@@ -85,6 +101,7 @@ public class FilterContainerPanel extends JPanel {
                 priceFilterContainer.add(lessThanLabel, gbcCont);
 
                 priceSearch_2 = new JTextField(5);
+                priceSearch_2.setEnabled(false);
                 {
                     gbcCont.gridx = 2;
                 }
@@ -99,16 +116,18 @@ public class FilterContainerPanel extends JPanel {
             typeFilterContainer.setLayout(new GridBagLayout());
             gbcCont = new GridBagConstraints();
             {
-                propertyTypeFilterCheck = new JCheckBox("Property Type:");
+                propertyTypeFilterCheck = new JCheckBox("Tipo de propriedade:");
+                propertyTypeFilterCheck.addItemListener(this);
                 {
                     gbcCont.gridx = 0;
                 }
                 typeFilterContainer.add(propertyTypeFilterCheck, gbcCont);
 
                 String[] stringArr = new String[2];
-                stringArr[0] = "Residential";
+                stringArr[0] = "Residencial";
                 stringArr[1] = "Comercial";
                 propertyTypeBox = new JComboBox<String>(stringArr);
+                propertyTypeBox.setEnabled(false);
                 {
                     gbcCont.gridx = 1;
                 }
@@ -119,7 +138,8 @@ public class FilterContainerPanel extends JPanel {
             this.add(typeFilterContainer, gbc);
 
 
-            filterButton = new JButton("Filter");
+            filterButton = new JButton("Filtrar");
+            filterButton.addActionListener(this);
             {
                 gbc.gridx = 0;
                 gbc.gridwidth = 3;
@@ -128,6 +148,72 @@ public class FilterContainerPanel extends JPanel {
                 gbc.insets = new Insets(5, 20, 0, 20);
             }
             this.add(filterButton, gbc);
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == filterButton){
+            try {
+                Sistema.pegarInstancia().criarListaFiltradaParaUsuario();
+
+                if(districtFilterCheck.isSelected()){
+                    Sistema.pegarInstancia().filtrarPorBairro(districtSearch.getText());
+                }
+
+                if(priceFilterCheck.isSelected()){
+                    float menorQue =  priceSearch_2.getText().equals("") ? Float.POSITIVE_INFINITY  : Float.parseFloat(priceSearch_2.getText());
+                    float maiorQue = priceSearch_1.getText().equals("") ? 0 : Float.parseFloat(priceSearch_1.getText());
+                    Sistema.pegarInstancia().filtrarPorPreco(menorQue, maiorQue);
+                }
+
+                if(propertyTypeFilterCheck.isSelected()){
+                    Sistema.pegarInstancia().filtrarPorTipo(propertyTypeBox.getSelectedItem().toString());
+                }
+
+                if(!districtFilterCheck.isSelected() && !priceFilterCheck.isSelected() && !propertyTypeFilterCheck.isSelected())
+                    Sistema.pegarInstancia().criarListaFiltradaParaUsuario();
+
+                frame.setCenter(new HomeCenterPanel(frame));
+            }
+            catch (NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(this,
+                        "Preço inválido",
+                        "Campo incorreto",
+                        JOptionPane.PLAIN_MESSAGE);
+            }
+            catch (NullPointerException npe) {
+                JOptionPane.showMessageDialog(this,
+                        "Campo vazio",
+                        "Campo incorreto",
+                        JOptionPane.PLAIN_MESSAGE);
+            }
+        }
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if(e.getSource() == districtFilterCheck) {
+            if(e.getStateChange() == ItemEvent.SELECTED)
+                districtSearch.setEnabled(true);
+            else
+                districtSearch.setEnabled(false);
+        }
+        if(e.getSource() == priceFilterCheck) {
+            if(e.getStateChange() == ItemEvent.SELECTED){
+                priceSearch_1.setEnabled(true);
+                priceSearch_2.setEnabled(true);
+            }
+            else{
+                priceSearch_1.setEnabled(false);
+                priceSearch_2.setEnabled(false);
+            }
+        }
+        if(e.getSource() == propertyTypeFilterCheck) {
+            if(e.getStateChange() == ItemEvent.SELECTED)
+                propertyTypeBox.setEnabled(true);
+            else
+                propertyTypeBox.setEnabled(false);
         }
     }
 }

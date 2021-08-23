@@ -25,4 +25,8 @@ public class Endereco {
     public String getStringMetadeEndereco(){
         return this.district + ", " + this.city + "/" + this.state;
     }
+
+    public String getBairro() {
+        return district;
+    }
 }

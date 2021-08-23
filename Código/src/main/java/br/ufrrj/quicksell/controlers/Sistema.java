@@ -7,6 +7,7 @@ import br.ufrrj.quicksell.views.HomeFrame;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sistema {
     private static Sistema instancia;
@@ -14,6 +15,7 @@ public class Sistema {
     private Usuario usuarioAtual;
 
     private static List<Imovel> listaDeImoveis;
+    private static List<Imovel> listaDeImoveisFiltrada;
     private Imovel imovelAtual;
 
     private static Imobiliaria imobiliaria;
@@ -40,6 +42,7 @@ public class Sistema {
         {
             if(usuario.getSenha().equals(senha)) {
                 usuarioAtual = usuario;
+                criarListaFiltradaParaUsuario();
                 new HomeFrame();
                 return true;
             }
@@ -66,17 +69,18 @@ public class Sistema {
         usuarioAtual = null;
     }
 
-    public List<Imovel> pegarListaFiltradaParaUsuario() {
-        if(usuarioAtual instanceof Corretor)
-            return listaDeImoveis;
+    public void criarListaFiltradaParaUsuario() {
+        listaDeImoveisFiltrada = new ArrayList<Imovel>();
 
-        List<Imovel> imoveisFiltrados = new ArrayList<Imovel>();
+        if(usuarioAtual instanceof Corretor){
+            listaDeImoveisFiltrada.addAll(listaDeImoveis);
+            return;
+        }
+
         for(Imovel imovel : listaDeImoveis)
             if(imovel.getProprietario() instanceof Imobiliaria) {
-                imoveisFiltrados.add(imovel);
+                listaDeImoveisFiltrada.add(imovel);
             }
-
-        return imoveisFiltrados;
     }
 
     public void fazerProposta(float valor, String descricao) {
@@ -100,6 +104,10 @@ public class Sistema {
         return imovelAtual;
     }
 
+    public static List<Imovel> getListaDeImoveisFiltrada() {
+        return listaDeImoveisFiltrada;
+    }
+
     public void addUsuario (Usuario usuario) {
         listaDeUsuarios.add(usuario);
     }
@@ -108,5 +116,26 @@ public class Sistema {
         listaDeImoveis.add(imovel);
     }
 
+    public void filtrarPorPreco(float menorQue, float maiorQue) {
+        listaDeImoveisFiltrada = listaDeImoveisFiltrada.stream().filter(imovel -> {
+            return imovel.getValor() <= menorQue && imovel.getValor() >= maiorQue;
+        }).collect(Collectors.toList());
+        for (Imovel imovel : listaDeImoveisFiltrada)
+        {
+            System.out.println(imovel.getValor());
+        }
+    }
+
+    public void filtrarPorBairro(String bairro) {
+        listaDeImoveisFiltrada = listaDeImoveisFiltrada.stream().filter(imovel -> {
+            return imovel.getEndereco().getBairro().equals(bairro);
+        }).collect(Collectors.toList());
+    }
+
+    public void filtrarPorTipo(String tipo) {
+        listaDeImoveisFiltrada = listaDeImoveisFiltrada.stream().filter(imovel -> {
+            return imovel.getTipoDeImovelString().equals(tipo);
+        }).collect(Collectors.toList());
+    }
 }
 

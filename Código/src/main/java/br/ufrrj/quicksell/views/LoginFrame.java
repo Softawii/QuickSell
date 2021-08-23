@@ -117,7 +117,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 
 
                 // PasswordLabel Inicio
-                passwordLabel = new JLabel("Password");
+                passwordLabel = new JLabel("Senha");
                 {
                     gbc.insets = new Insets(15, 0, 0, 0);
                     gbc.gridy = 2;
@@ -143,7 +143,7 @@ public class LoginFrame extends JFrame implements ActionListener {
                 signInButton.addActionListener(this);
                 signInButton.setLayout(new BorderLayout());
                 {
-                    JLabel buttonLabel = new JLabel("Sign in");
+                    JLabel buttonLabel = new JLabel("Login");
                     buttonLabel.setForeground(Color.white);
                     buttonLabel.setHorizontalAlignment(JLabel.CENTER);
                     buttonLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -162,7 +162,7 @@ public class LoginFrame extends JFrame implements ActionListener {
                 signUpButton.setBackground(new Color(37, 138,164));
                 signUpButton.setLayout(new BorderLayout());
                 {
-                    JLabel buttonLabel1 = new JLabel("Create an account");
+                    JLabel buttonLabel1 = new JLabel("Crie uma Conta");
                     buttonLabel1.setForeground(Color.white);
                     buttonLabel1.setHorizontalAlignment(JLabel.CENTER);
                     buttonLabel1.setHorizontalTextPosition(JLabel.CENTER);
@@ -195,6 +195,12 @@ public class LoginFrame extends JFrame implements ActionListener {
         if(e.getSource() == signInButton) {
             if(Sistema.pegarInstancia().fazerLogin(userField.getText(), new String(passwordField.getPassword())))
                 this.dispose();
+            else {
+                JOptionPane.showMessageDialog(this,
+                        "Seu email ou senha est\u00E3o incorretos",
+                        "Campo incorreto",
+                        JOptionPane.PLAIN_MESSAGE);
+            }
         }
     }
 }

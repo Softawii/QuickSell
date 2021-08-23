@@ -32,7 +32,7 @@ public class HomeCenterPanel extends JPanel {
         center = new JPanel();
         center.setLayout(new BorderLayout());
         {
-            centerHeader = new FilterContainerPanel();
+            centerHeader = new FilterContainerPanel(frame);
             center.add(centerHeader, BorderLayout.NORTH);
 
             scrollBody = new JScrollPane();
@@ -42,7 +42,7 @@ public class HomeCenterPanel extends JPanel {
             gbc2.gridy = 0;
             gbc2.insets = new Insets(10,0, 10, 0);
             {
-                for(Imovel imovel : Sistema.pegarInstancia().pegarListaFiltradaParaUsuario()){
+                for(Imovel imovel : Sistema.pegarInstancia().getListaDeImoveisFiltrada()){
                     PropertyContainerPanel pcp = new PropertyContainerPanel(frame, imovel);
                     gbc2.gridy += 1;
                     centerBody.add(pcp, gbc2);
