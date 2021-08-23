@@ -1,8 +1,10 @@
-package br.ufrrj.quicksell.views.panels;
+package br.ufrrj.quicksell.views.panels.center;
 
 import br.ufrrj.quicksell.controlers.Sistema;
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.views.HomeFrame;
+import br.ufrrj.quicksell.views.panels.container.FilterContainerPanel;
+import br.ufrrj.quicksell.views.panels.container.PropertyContainerPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +32,7 @@ public class HomeCenterPanel extends JPanel {
         center = new JPanel();
         center.setLayout(new BorderLayout());
         {
-            centerHeader = new FilterPanel();
+            centerHeader = new FilterContainerPanel();
             center.add(centerHeader, BorderLayout.NORTH);
 
             scrollBody = new JScrollPane();

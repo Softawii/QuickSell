@@ -1,4 +1,4 @@
-package br.ufrrj.quicksell.views.panels;
+package br.ufrrj.quicksell.views.panels.container;
 
 import br.ufrrj.quicksell.entities.Proposta;
 

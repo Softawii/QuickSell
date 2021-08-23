@@ -1,4 +1,4 @@
-package br.ufrrj.quicksell.views.panels;
+package br.ufrrj.quicksell.views.panels.center;
 
 import br.ufrrj.quicksell.controlers.Sistema;
 import br.ufrrj.quicksell.entities.Imovel;

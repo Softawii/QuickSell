@@ -1,4 +1,4 @@
-package br.ufrrj.quicksell.views.panels;
+package br.ufrrj.quicksell.views.panels.center;
 
 import br.ufrrj.quicksell.controlers.Sistema;
 
@@ -6,8 +6,6 @@ import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.entities.Proposta;
 import br.ufrrj.quicksell.views.HomeFrame;
 import br.ufrrj.quicksell.views.ProposeFrame;
-import br.ufrrj.quicksell.views.panels.MenuPanel;
-import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -199,7 +197,7 @@ public class PropertyCenterPanel extends JPanel implements ActionListener {
             }
             centerBody.add(contactTitleLabel, gbc);
 
-            contactLabel = new JTextArea(imovel.getProprietario().getEmail());
+            contactLabel = new JTextArea(imovel.getProprietario().pegarResponsavel(imovel).getEmail());
             contactLabel.setWrapStyleWord(true);
             contactLabel.setLineWrap(true);
             contactLabel.setEditable(false);
@@ -219,7 +217,7 @@ public class PropertyCenterPanel extends JPanel implements ActionListener {
             }
             centerBody.add(spacing, gbc);
 
-            if(imovel.getProprietario() == Sistema.pegarInstancia().getUsuarioAtual())
+            if(imovel.getProprietario().pegarResponsavel(imovel) == Sistema.pegarInstancia().getUsuarioAtual())
             {
                 editButton = new JButton();
                 editButton.setBackground(new Color(37, 138,164));

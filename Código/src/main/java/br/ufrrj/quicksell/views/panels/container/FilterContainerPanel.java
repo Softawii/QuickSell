@@ -1,10 +1,10 @@
-package br.ufrrj.quicksell.views.panels;
+package br.ufrrj.quicksell.views.panels.container;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class FilterPanel extends JPanel {
+public class FilterContainerPanel extends JPanel {
     private JPanel districtFilterContainer;
     private JCheckBox districtFilterCheck;
     private JTextField districtSearch;
@@ -22,7 +22,7 @@ public class FilterPanel extends JPanel {
 
     private JButton filterButton;
 
-    public FilterPanel() {
+    public FilterContainerPanel() {
         this.setLayout(new GridBagLayout());
         Border padding = BorderFactory.createEmptyBorder(5, 40, 0, 50);
         Border border = BorderFactory.createTitledBorder("Search Filter");

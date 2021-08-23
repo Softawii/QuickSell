@@ -1,11 +1,9 @@
-package br.ufrrj.quicksell.views.panels;
+package br.ufrrj.quicksell.views.panels.center;
 
 import br.ufrrj.quicksell.controlers.Sistema;
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.views.HomeFrame;
-import br.ufrrj.quicksell.views.panels.FilterPanel;
-import br.ufrrj.quicksell.views.panels.MenuPanel;
-import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
+import br.ufrrj.quicksell.views.panels.container.PropertyContainerPanel;
 
 import javax.swing.*;
 import java.awt.*;
