@@ -8,13 +8,18 @@ public class Imobiliaria extends Proprietario {
     private String email;
     private List<Corretor> corretores;
 
-    public Imobiliaria(String nome, String email, List<Imovel> imoveis) {
+    public Imobiliaria(String nome, String email, List<Imovel> imoveis, List<Corretor> corretores) {
         this.imoveis = imoveis;
         this.nome = nome;
         this.email = email;
+        this.corretores = corretores;
     }
 
-    Corretor pegarResposavel(Imovel imovelAtual) {
+    public Usuario pegarResponsavel(Imovel imovelAtual) {
+        for(Corretor corretor : corretores) {
+            if(corretor.checarResponsabilidade(imovelAtual))
+                return (Usuario) corretor;
+        }
         return null;
     }
 

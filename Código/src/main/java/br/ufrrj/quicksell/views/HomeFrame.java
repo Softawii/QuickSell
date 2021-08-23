@@ -1,17 +1,10 @@
 package br.ufrrj.quicksell.views;
 
-import br.ufrrj.quicksell.controlers.Sistema;
-import br.ufrrj.quicksell.entities.Corretor;
-import br.ufrrj.quicksell.entities.Imovel;
-import br.ufrrj.quicksell.entities.Usuario;
-import br.ufrrj.quicksell.views.panels.FilterPanel;
-import br.ufrrj.quicksell.views.panels.HomeCenterPanel;
+import br.ufrrj.quicksell.views.panels.center.HomeCenterPanel;
 import br.ufrrj.quicksell.views.panels.MenuPanel;
-import br.ufrrj.quicksell.views.panels.PropertyContainerPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 import static br.ufrrj.quicksell.utils.Util.getImageWidth;
 import static java.util.Objects.requireNonNull;

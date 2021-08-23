@@ -2,8 +2,13 @@ package br.ufrrj.quicksell.views.panels;
 
 
 import br.ufrrj.quicksell.controlers.Sistema;
+import br.ufrrj.quicksell.entities.Corretor;
 import br.ufrrj.quicksell.views.HomeFrame;
 import br.ufrrj.quicksell.views.LoginFrame;
+import br.ufrrj.quicksell.views.panels.center.AgentPropertiesCenterPanel;
+import br.ufrrj.quicksell.views.panels.center.HomeCenterPanel;
+import br.ufrrj.quicksell.views.panels.center.UserProfileCenterPanel;
+import br.ufrrj.quicksell.views.panels.center.UserPropertiesCenterPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +29,7 @@ public class MenuPanel extends JPanel implements ActionListener {
     private JButton profileButton;
     private JButton propertyButton;
     private JButton signOutButton;
+    private JButton managePropertiesButton;
 
     private JPanel footer;
     private JLabel footerLabel;
@@ -58,6 +64,7 @@ public class MenuPanel extends JPanel implements ActionListener {
                     gbc.anchor = GridBagConstraints.CENTER;
                     gbc.weighty = 0.05;
                     gbc.insets = new Insets(0, 10, 10, 10);
+                    gbc.gridy = 0;
                 }
                 body.add(iconImage, gbc);
                 // iconImage Final
@@ -67,7 +74,7 @@ public class MenuPanel extends JPanel implements ActionListener {
                 nameLabel.setFont(new Font("Segoe UI", Font.BOLD, 15));
                 {
                     gbc.insets = new Insets(0, 10, 5, 10);
-                    gbc.gridy = 1;
+                    gbc.gridy += 1;
                 }
                 body.add(nameLabel, gbc);
 
@@ -76,7 +83,7 @@ public class MenuPanel extends JPanel implements ActionListener {
                 homeButton.addActionListener(this);
                 {
                     gbc.fill = GridBagConstraints.HORIZONTAL;
-                    gbc.gridy = 2;
+                    gbc.gridy += 1;
                 }
                 body.add(homeButton, gbc);
 
@@ -84,7 +91,7 @@ public class MenuPanel extends JPanel implements ActionListener {
                 profileButton.setBackground(new Color(211, 211,211));
                 profileButton.addActionListener(this);
                 {
-                    gbc.gridy = 3;
+                    gbc.gridy += 1;
                 }
                 body.add(profileButton, gbc);
 
@@ -92,13 +99,23 @@ public class MenuPanel extends JPanel implements ActionListener {
                 propertyButton.setBackground(new Color(211, 211,211));
                 propertyButton.addActionListener(this);
                 {
-                    gbc.gridy = 4;
+                    gbc.gridy += 1;
                 }
                 body.add(propertyButton, gbc);
 
+                if(Sistema.pegarInstancia().getUsuarioAtual() instanceof Corretor) {
+                    managePropertiesButton = new JButton("Gerenciar Im\u00F3veis");
+                    managePropertiesButton.setBackground(new Color(211, 211,211));
+                    managePropertiesButton.addActionListener(this);
+                    {
+                        gbc.gridy += 1;
+                    }
+                    body.add(managePropertiesButton, gbc);
+                }
+
                 JLabel spacing = new JLabel();
                 {
-                    gbc.gridy = 5;
+                    gbc.gridy += 1;
                     gbc.weighty = 2.0;
                 }
                 body.add(spacing, gbc);
@@ -107,7 +124,7 @@ public class MenuPanel extends JPanel implements ActionListener {
                 signOutButton.setBackground(new Color(211, 211,211));
                 signOutButton.addActionListener(this);
                 {
-                    gbc.gridy = 6;
+                    gbc.gridy += 1;
                     gbc.fill = GridBagConstraints.NONE;
                     gbc.weighty = 0.05;
                 }
@@ -145,6 +162,10 @@ public class MenuPanel extends JPanel implements ActionListener {
 
         if(e.getSource() == profileButton) {
             frame.setCenter(new UserProfileCenterPanel(frame));
+        }
+
+        if(e.getSource() == managePropertiesButton) {
+            frame.setCenter(new AgentPropertiesCenterPanel(frame));
         }
     }
 }
