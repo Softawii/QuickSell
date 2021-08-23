@@ -1,14 +1,15 @@
 package br.ufrrj.quicksell;
 
 import br.ufrrj.quicksell.controlers.Sistema;
+import br.ufrrj.quicksell.entities.Corretor;
+import br.ufrrj.quicksell.entities.Imobiliaria;
 import br.ufrrj.quicksell.entities.Imovel;
 import br.ufrrj.quicksell.entities.Usuario;
 import br.ufrrj.quicksell.utils.Endereco;
-import br.ufrrj.quicksell.utils.Data;
-import br.ufrrj.quicksell.views.HomeFrame;
-import br.ufrrj.quicksell.views.LoginFrame;
-import br.ufrrj.quicksell.views.PropertyFrame;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     // loginFrameWidth = 400;
@@ -16,28 +17,60 @@ public class Main {
     public static void main(String[] args) {
         FlatCyanLightIJTheme.setup();
 
-        Endereco endereco = new Endereco("Soares", "26379060", "Vila Sao Joao sdfsdaffsdafsda", "40", "Queimados", "Rio de Janeiro", " ");
-        Imovel imovel = new Imovel(250, 250000, "Totalmente mobilada e excelente bairro. Realmente uma das casas ja vistas, mt braba msm",
-                endereco);
+        Endereco endereco = new Endereco("Soares", "26379060", "Vila S\u00E3o Jo\u00E3o", "40", "Queimados", "Rio de Janeiro", " ");
+        Endereco endereco1 = new Endereco("Irene", "26276370", "Comendador Soares", "000", "Nova Igua\u00E7u", "Rio de Janeiro", " ");
+        Endereco endereco2 = new Endereco(" De baixo", "666", "inferno", "666", "S\u00E9timo ciclo", "ali", " ");
 
-        Endereco endereco1 = new Endereco("Irene", "26276370", "Comendador", "000", "Nova Iguaçu", "Rio de Janeiro", " ");
-        Imovel imovel1 = new Imovel(1, -1, "ALO ALO ALO QUEM LEU MAMOU",
-                endereco1);
+        List<Imovel> listaNicolas = new ArrayList<Imovel>();
+        List<Imovel> listaSergio = new ArrayList<Imovel>();
 
-        Endereco endereco2 = new Endereco(" De baixo", "666", "inferno", "666", "Sétimo ciclo", "ali", " ");
-        Imovel imovel2 = new Imovel(666, 250000, "local seguro e bem climatizado, perfeito para crianças",
-                endereco2);
+        Usuario nicolas = new Usuario("Nicolas Magalh\u00E3es", "123456789", "26656666", endereco1, "nicolas@gmail.com", "321", listaNicolas);
+        Usuario sergio = new Usuario("S\u00E9rgio Felipe", "195345604", "90909090", endereco, "sergio@gmail.com", "123");
+        Corretor corretor = new Corretor("Corretor1", "987654321", "12345678", endereco2,"corretor","123");
 
-        Sistema.pegarInstancia().addImovel(imovel);
-        Sistema.pegarInstancia().addImovel(imovel1);
-        Sistema.pegarInstancia().addImovel(imovel2);
+        List<Imovel> listaImobiliaria = new ArrayList<Imovel>();
 
-        Sistema.pegarInstancia().addUsuario(new Usuario("sergio", "123"));
-        Sistema.pegarInstancia().addUsuario(new Usuario("nicolas", "321"));
+        Imobiliaria imobiliaria = new Imobiliaria("Imor Tal", "imorTal@gmail.com", listaImobiliaria);
 
-        new LoginFrame(400, 500);
+
+        Imovel imovelImo1 = new Imovel(250, 250000, "Totalmente mobilada e excelente bairro. Realmente uma das casas ja vistas, mt braba msm",
+                endereco, imobiliaria);
+
+        Imovel imovelNicolas = new Imovel(1, -1, "ALO ALO ALO QUEM LEU MAMOU",
+                endereco1, nicolas);
+
+        Imovel imovelImo2 = new Imovel(666, 250000, "local seguro e bem climatizado, perfeito para crian\u00E7as",
+                endereco2, imobiliaria);
+
+
+        Sistema.pegarInstancia().addImovel(imovelImo1);
+        Sistema.pegarInstancia().addImovel(imovelImo2);
+        Sistema.pegarInstancia().addImovel(imovelNicolas);
+
+        Sistema.setImobiliaria(imobiliaria);
+
+        listaNicolas.add(imovelNicolas);
+
+        listaImobiliaria.add(imovelImo1);
+        listaImobiliaria.add(imovelImo2);
+
+        Sistema.pegarInstancia().addUsuario(sergio);
+        Sistema.pegarInstancia().addUsuario(nicolas);
+        Sistema.pegarInstancia().addUsuario(corretor);
+
+        Sistema.pegarInstancia().fazerLogin("nicolas@gmail.com", "321");
 
         /*
+        Sistema.pegarInstancia().selecionarImovel(imovelNicolas);
+        Sistema.pegarInstancia().fazerProposta(150, "UMA DAS PROPOSTAS JA FEITAS");
+        Sistema.pegarInstancia().fazerProposta(150, "UMA DAS PROPOSTAS JA FEITAS");
+        Sistema.pegarInstancia().fazerProposta(150, "UMA DAS PROPOSTAS JA FEITAS");
+
+
+
+        //new LoginFrame();
+
+
         Endereco endereco = new Endereco("Soares", "26379060", "Vila Sao Joao", "40", "Queimados", "Rio de Janeiro", " ");
         Imovel imovel = new Imovel(250, 250000, "Totalmente mobilada e excelente bairro. Realmente uma das casas ja vistas, mt braba msm",
                 endereco, new Data(20,02,2001));

@@ -3,6 +3,7 @@ package br.ufrrj.quicksell.entities;
 import br.ufrrj.quicksell.utils.Data;
 import br.ufrrj.quicksell.utils.Endereco;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario extends Proprietario {
@@ -12,16 +13,35 @@ public class Usuario extends Proprietario {
     private String telefone;
     private String email;
     private String senha;
-    private List<Proposta> propostasRealizdas;
-    private List<Proposta> propostasRecebedas;
+    private List<Proposta> propostasRealizadas;
 
-    public Usuario (String email, String senha) {
+    public Usuario (String nome, String cpf, String telefone, Endereco endereco, String email, String senha) {
         this.email = email;
         this.senha = senha;
-        this.nome = "Sergio Felipe Rezende Do Nascimento";
+        this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.imoveis = new ArrayList<Imovel>();
+        this.propostasRealizadas = new ArrayList<Proposta>();
     }
 
-    public void criarProposta(Imovel imovelAtual, int valor, String descricao, Data data){}
+    public Usuario (String nome, String cpf, String telefone, Endereco endereco, String email, String senha, List<Imovel> imoveis) {
+        this.email = email;
+        this.senha = senha;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.imoveis = imoveis;
+        this.propostasRealizadas = new ArrayList<Proposta>();
+    }
+
+    public Proposta criarProposta(Imovel imovelAtual, float valor, String descricao, Data data){
+        Proposta proposta = new Proposta(valor, descricao, data, this, imovelAtual);
+        propostasRealizadas.add(proposta);
+        return proposta;
+    }
 
     public void registrarImovel(Imovel imovel){}
 
@@ -51,4 +71,19 @@ public class Usuario extends Proprietario {
         return email;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public int getNumeroImoveis() {
+        return imoveis.size();
+    }
 }
