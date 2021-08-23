@@ -24,9 +24,9 @@ public class Main {
         List<Imovel> listaNicolas = new ArrayList<Imovel>();
         List<Imovel> listaSergio = new ArrayList<Imovel>();
 
-        Usuario nicolas = new Usuario("Nicolas Magalh\u00E3es", endereco1, "nicolas@gmail.com", "321", listaNicolas);
-        Usuario sergio = new Usuario("S\u00E9rgio Felipe", endereco, "sergio@gmail.com", "123");
-        Corretor corretor = new Corretor("Corretor1", endereco2,"corretor","123");
+        Usuario nicolas = new Usuario("Nicolas Magalh\u00E3es", "123456789", "26656666", endereco1, "nicolas@gmail.com", "321", listaNicolas);
+        Usuario sergio = new Usuario("S\u00E9rgio Felipe", "195345604", "90909090", endereco, "sergio@gmail.com", "123");
+        Corretor corretor = new Corretor("Corretor1", "987654321", "12345678", endereco2,"corretor","123");
 
         List<Imovel> listaImobiliaria = new ArrayList<Imovel>();
 

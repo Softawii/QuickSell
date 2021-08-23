@@ -15,18 +15,24 @@ public class Usuario extends Proprietario {
     private String senha;
     private List<Proposta> propostasRealizadas;
 
-    public Usuario (String nome, Endereco endereco, String email, String senha) {
+    public Usuario (String nome, String cpf, String telefone, Endereco endereco, String email, String senha) {
         this.email = email;
         this.senha = senha;
         this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.endereco = endereco;
         this.imoveis = new ArrayList<Imovel>();
         this.propostasRealizadas = new ArrayList<Proposta>();
     }
 
-    public Usuario (String nome, Endereco endereco, String email, String senha, List<Imovel> imoveis) {
+    public Usuario (String nome, String cpf, String telefone, Endereco endereco, String email, String senha, List<Imovel> imoveis) {
         this.email = email;
         this.senha = senha;
         this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.endereco = endereco;
         this.imoveis = imoveis;
         this.propostasRealizadas = new ArrayList<Proposta>();
     }
@@ -65,4 +71,19 @@ public class Usuario extends Proprietario {
         return email;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public int getNumeroImoveis() {
+        return imoveis.size();
+    }
 }

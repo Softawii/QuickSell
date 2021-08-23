@@ -142,5 +142,9 @@ public class MenuPanel extends JPanel implements ActionListener {
             frame.dispose();
             new LoginFrame();
         }
+
+        if(e.getSource() == profileButton) {
+            frame.setCenter(new UserProfileCenterPanel(frame));
+        }
     }
 }

@@ -14,11 +14,11 @@ public class Corretor extends Usuario {
     private void addImovel(Imovel imovel){}
     private List<Proposta> pegarPropostasdaImobiliaria(){ return null; }
 
-    public Corretor(String nome, Endereco endereco, String email, String senha) {
-        super(nome, endereco, email, senha);
+    public Corretor(String nome, String cpf, String telefone, Endereco endereco, String email, String senha) {
+        super(nome, cpf, telefone, endereco, email, senha);
     }
 
-    public Corretor(String nome, Endereco endereco, String email, String senha, List<Imovel> imoveis) {
-        super(nome, endereco, email, senha, imoveis);
+    public Corretor(String nome, String cpf, String telefone, Endereco endereco, String email, String senha, List<Imovel> imoveis) {
+        super(nome, cpf, telefone, endereco, email, senha, imoveis);
     }
 }
