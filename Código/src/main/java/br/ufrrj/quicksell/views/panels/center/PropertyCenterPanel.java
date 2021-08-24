@@ -72,8 +72,8 @@ public class PropertyCenterPanel extends JPanel implements ActionListener {
         GridBagConstraints gbc = new GridBagConstraints();
         {
             propertyImage = new JLabel();
-            ImageIcon image = getImageWidth("Casa_Teste.jpg", 220, 200);
-            propertyImage.setIcon(image);
+            //ImageIcon image = getImageWidth("Casa_Braba.jpg", 220, 200);
+            propertyImage.setIcon(imovel.getImagem(220, 200));
             propertyImage.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2, true));
             {
                 gbc.gridx = 0;

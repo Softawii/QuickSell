@@ -38,8 +38,8 @@ public class PropertyContainerPanel extends JPanel implements ActionListener {
 
 
         propertyImage = new JLabel();
-        ImageIcon image = getImageWidth("Casa_Teste.jpg", 160, 140);
-        propertyImage.setIcon(image);
+        //ImageIcon image = getImageWidth("Casa_Braba.jpg", 160, 140);
+        propertyImage.setIcon(imovel.getImagem(160, 140));
         {
             gbc.gridx = 0;
             gbc.gridy = 0;

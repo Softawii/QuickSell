@@ -1,13 +1,12 @@
 package br.ufrrj.quicksell.entities;
 
-import br.ufrrj.quicksell.utils.Endereco;
-import br.ufrrj.quicksell.utils.Data;
-import br.ufrrj.quicksell.utils.EstadoDoImovel;
-import br.ufrrj.quicksell.utils.TipoDeImovel;
+import br.ufrrj.quicksell.utils.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.Objects.requireNonNull;
 
 public class Imovel {
     int area;
@@ -15,19 +14,26 @@ public class Imovel {
     String descricao;
     Endereco endereco;
     Data dataDeRegistro;
-    List<ImageIcon> imagens;
+    ImageIcon imagem;
     Proprietario proprietario;
     List<Proposta> listaDePropostas;
     TipoDeImovel tipoDeImovel;
     EstadoDoImovel estadoDoImovel;
 
-    public Imovel(int valor, int area, String descricao, Endereco endereco, Proprietario proprietario) {
+    public Imovel(int valor, int area, String descricao, Endereco endereco, Proprietario proprietario, String path, TipoDeImovel tipoDeImovel) {
         this.valor = valor;
         this.area = area;
         this.descricao = descricao;
         this.endereco = endereco;
         this.proprietario = proprietario;
         listaDePropostas = new ArrayList<Proposta>();
+        Imovel o = new Imovel();
+        imagem = new ImageIcon(requireNonNull(o.getClass().getClassLoader().getResource(path)));
+        this.tipoDeImovel = tipoDeImovel;
+    }
+
+    public Imovel () {
+
     }
 
     public void addProposta(Proposta proposta) {
@@ -48,6 +54,10 @@ public class Imovel {
 
     public Endereco getEndereco() {
         return endereco;
+    }
+
+    public ImageIcon getImagem(int width, int height) {
+        return Util.getImageWidth(imagem, width, height);
     }
 
     public Proprietario getProprietario() {

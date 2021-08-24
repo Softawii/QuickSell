@@ -61,8 +61,7 @@ public class PropertieProposesCenterPanel extends JPanel {
             header.add(propertyTitleLabel, gbc);
 
             propertyImage = new JLabel();
-            ImageIcon image = getImageWidth("Casa_Teste.jpg", 200, 180);
-            propertyImage.setIcon(image);
+            propertyImage.setIcon(imovel.getImagem(200, 180));
             propertyImage.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2, true));
             {
                 gbc.gridwidth = 1;
