@@ -1,11 +1,21 @@
 package br.ufrrj.quicksell.views;
 
+import br.ufrrj.quicksell.controlers.Sistema;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+
+import static br.ufrrj.quicksell.utils.Util.getImageWidth;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import static java.util.Objects.requireNonNull;
 
-public class LoginFrame extends JFrame {
+public class LoginFrame extends JFrame implements ActionListener {
+    private static final int WIDTH = 400;
+    private static final int HEIGHT = 500;
+
     private JPanel header;
     public JLabel iconImage;
     private JLabel loginLabel;
@@ -24,12 +34,12 @@ public class LoginFrame extends JFrame {
 
     private JPanel container;
 
-    public LoginFrame(int width, int height) {
+    public LoginFrame() {
         super();
         ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource("LoginIcon.png")));
         this.setIconImage(image.getImage());
         this.setTitle("Quicksell"); //Bota t�tulo
-        this.setSize(width, height); //Muda o tamanho
+        this.setSize(WIDTH, HEIGHT); //Muda o tamanho
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Fechar a aplica��o ao clicar no X
         this.setResizable(false); //Permite que o usu�rio mude o tamanho da janela
         this.setLocationRelativeTo(null);
@@ -51,8 +61,6 @@ public class LoginFrame extends JFrame {
             iconImage = new JLabel();
             ImageIcon image = getImageWidth("LoginIcon.png", 100, 100);
             iconImage.setIcon(image);
-            iconImage.setHorizontalAlignment(JLabel.CENTER);
-            iconImage.setLayout(new BorderLayout(0, 100));
             iconImage.setText("QUICKSELL");
             iconImage.setHorizontalTextPosition(JLabel.CENTER);
             iconImage.setVerticalTextPosition(JLabel.BOTTOM);
@@ -91,7 +99,7 @@ public class LoginFrame extends JFrame {
             GridBagConstraints gbc = new GridBagConstraints();
             {
                 // UserLabel Inicio
-                userLabel = new JLabel("Username");
+                userLabel = new JLabel("Email");
                 {
                     gbc.anchor = GridBagConstraints.FIRST_LINE_START;
                 }
@@ -109,7 +117,7 @@ public class LoginFrame extends JFrame {
 
 
                 // PasswordLabel Inicio
-                passwordLabel = new JLabel("Password");
+                passwordLabel = new JLabel("Senha");
                 {
                     gbc.insets = new Insets(15, 0, 0, 0);
                     gbc.gridy = 2;
@@ -132,9 +140,10 @@ public class LoginFrame extends JFrame {
                 signInButton = new JButton();
                 signInButton.setPreferredSize(new Dimension(0, 35));
                 signInButton.setBackground(new Color(37, 138,164));
+                signInButton.addActionListener(this);
                 signInButton.setLayout(new BorderLayout());
                 {
-                    JLabel buttonLabel = new JLabel("Sign in");
+                    JLabel buttonLabel = new JLabel("Login");
                     buttonLabel.setForeground(Color.white);
                     buttonLabel.setHorizontalAlignment(JLabel.CENTER);
                     buttonLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -153,7 +162,7 @@ public class LoginFrame extends JFrame {
                 signUpButton.setBackground(new Color(37, 138,164));
                 signUpButton.setLayout(new BorderLayout());
                 {
-                    JLabel buttonLabel1 = new JLabel("Create an account");
+                    JLabel buttonLabel1 = new JLabel("Crie uma Conta");
                     buttonLabel1.setForeground(Color.white);
                     buttonLabel1.setHorizontalAlignment(JLabel.CENTER);
                     buttonLabel1.setHorizontalTextPosition(JLabel.CENTER);
@@ -181,9 +190,17 @@ public class LoginFrame extends JFrame {
         this.add(footer, BorderLayout.SOUTH);
     }
 
-    public ImageIcon getImageWidth(String path, int width, int height) {
-        ImageIcon image = new ImageIcon(requireNonNull(this.getClass().getClassLoader().getResource(path)));
-        return new ImageIcon(image.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == signInButton) {
+            if(Sistema.pegarInstancia().fazerLogin(userField.getText(), new String(passwordField.getPassword())))
+                this.dispose();
+            else {
+                JOptionPane.showMessageDialog(this,
+                        "Seu email ou senha est\u00E3o incorretos",
+                        "Campo incorreto",
+                        JOptionPane.PLAIN_MESSAGE);
+            }
+        }
     }
-
 }

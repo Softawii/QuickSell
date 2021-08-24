@@ -11,4 +11,8 @@ public class Util{
         ImageIcon image = new ImageIcon(requireNonNull(o.getClass().getClassLoader().getResource(path)));
         return new ImageIcon(image.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
     }
+
+    public static ImageIcon getImageWidth(ImageIcon image, int width, int height) {
+        return new ImageIcon(image.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+    }
 }
