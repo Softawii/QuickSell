@@ -29,6 +29,10 @@ public class Proposta {
         return descricao;
     }
 
+    public Imovel getImovel() {
+        return imovel;
+    }
+
     @Override
     public String toString() {
         return "Proposta{" +

@@ -12,7 +12,6 @@ public class Corretor extends Usuario {
 
 
     private void addImovel(Imovel imovel){}
-    private List<Proposta> pegarPropostasdaImobiliaria(){ return null; }
 
     public Corretor(String nome, String cpf, String telefone, Endereco endereco, String email, String senha, List<Imovel> imoveisGerenciados) {
         super(nome, cpf, telefone, endereco, email, senha);
